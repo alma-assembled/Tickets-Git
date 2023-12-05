@@ -1,8 +1,23 @@
 <RCC>
-  <qresource prefix="resume">
-    <file>registered.png</file>
-  </qresource>
   <qresource prefix="logo">
     <file>Logo_Verical_Blanco.png</file>
+  </qresource>
+  <qresource prefix="left">
+    <file>hogar.png</file>
+    <file>editar.png</file>
+    <file>lib.png</file>
+    <file>mas.png</file>
+    <file>nota.png</file>
+    <file>usuario.png</file>
+  </qresource>
+  <qresource prefix="resume">
+    <file>apreton-de-manos.png</file>
+    <file>estrella.png</file>
+    <file>almuerzo-cohete.png</file>
+    <file>cheque.png</file>
+    <file>eliminar.png</file>
+  </qresource>
+  <qresource prefix="general">
+    <file>busqueda.png</file>
   </qresource>
 </RCC>
