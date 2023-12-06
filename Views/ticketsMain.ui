@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>TicketWindow</class>
+ <widget class="QMainWindow" name="TicketWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -85,7 +85,7 @@ color:  rgb(139, 132, 132);
 
 QPushButton{
 margin-left: -100px;
-pading: 8px;
+
 
 }</string>
     </property>
@@ -799,42 +799,12 @@ image: url(:/resume/estrella.png);</string>
         </property>
        </item>
       </widget>
-      <widget class="QFontComboBox" name="fcb_employee">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>10</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QDateEdit" name="date_edit">
        <property name="geometry">
         <rect>
          <x>500</x>
          <y>10</y>
          <width>121</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QFontComboBox" name="fcb_category">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>10</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QFontComboBox" name="fbc_">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>60</y>
-         <width>161</width>
          <height>31</height>
         </rect>
        </property>
@@ -901,6 +871,36 @@ color:  rgb(139, 132, 132);</string>
        </property>
        <property name="text">
         <string/>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_employee">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>10</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_category">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>10</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -1839,7 +1839,7 @@ color: rgb(237, 237, 237)</string>
   </widget>
  </widget>
  <resources>
-  <include location="../Resources/iconos/iconos.qrc"/>
+  <include location="../Resources/iconos.qrc"/>
  </resources>
  <connections/>
 </ui>
