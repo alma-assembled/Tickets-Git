@@ -790,7 +790,7 @@ class Ui_TicketWindow(object):
         self.lbl_nombre_16.setText(_translate("TicketWindow", "COMENTARIO"))
         self.title_9.setText(_translate("TicketWindow", "ASIGNAR TICKET"))
         self.pushButton_27.setText(_translate("TicketWindow", "Editar Ticcket"))
-import Recursos.iconos.iconos
+import Resources.iconos.iconos
 
 
 if __name__ == "__main__":
