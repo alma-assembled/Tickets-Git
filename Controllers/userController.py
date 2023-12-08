@@ -25,6 +25,7 @@ class ControllerUser:
         if usuario and password:
             user = Usuario(usuario, password)
             if self.modelo.ConsultaUsuario(user) == True:
+                self.modelo.infoUsuario()
                 self.mostrar_vista_ticket()
             else : 
                 self.vista.label_info.show()

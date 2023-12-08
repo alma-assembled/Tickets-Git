@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
+    <width>949</width>
     <height>688</height>
    </rect>
   </property>
@@ -61,10 +61,17 @@ color:rgb(154, 150, 150);
 border-radius: 30px;
 }
 
+
 QPushButton{
 background-color: rgb(6, 91, 103);
 color: rgb(237, 237, 237);
 border-radius: 30px;
+}
+
+
+#lb_nombre{
+ font: 15px &quot;Arial&quot;;
+color:rgb(106, 255, 118);
 }
 </string>
    </property>
@@ -78,18 +85,16 @@ border-radius: 30px;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-background-color: rgb(217, 217, 217);
+     <string notr="true">background-color: rgb(217, 217, 217);
 color:  rgb(139, 132, 132);
 
 
 QPushButton{
 margin-left: -100px;
-
-
-}</string>
+}
+</string>
     </property>
-    <widget class="QLabel" name="lb_name">
+    <widget class="QLabel" name="lb_nombre">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -106,7 +111,7 @@ margin-left: -100px;
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>140</y>
+       <y>120</y>
        <width>47</width>
        <height>13</height>
       </rect>
@@ -118,119 +123,63 @@ margin-left: -100px;
     <widget class="QPushButton" name="btn_dashboard">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>170</y>
-       <width>161</width>
+       <x>40</x>
+       <y>140</y>
+       <width>121</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/left/hogar.png);
-pading: 8px;
-margin-left: -100px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_addTicket">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>212</y>
-       <width>161</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/left/mas.png);
-margin-left: -100px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_ticket">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>250</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/left/lib.png);
-margin-left: -100px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_myTickets">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>290</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/left/nota.png);
-margin-left: -100px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lb_dashboard">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>170</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
+      <string notr="true">margin-left: -30px;
+</string>
      </property>
      <property name="text">
       <string>DASHBOARD</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lb_addTicket">
+    <widget class="QPushButton" name="btn_addTicket">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>210</y>
-       <width>101</width>
-       <height>21</height>
+       <x>40</x>
+       <y>180</y>
+       <width>121</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">margin-left: -10px;</string>
      </property>
      <property name="text">
       <string>CREAR TICKETS</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lb_ticket">
+    <widget class="QPushButton" name="btn_ticket">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>250</y>
-       <width>61</width>
+       <x>40</x>
+       <y>220</y>
+       <width>121</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">margin-left: -50px;</string>
      </property>
      <property name="text">
       <string>TICKETS</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lb_myTickets">
+    <widget class="QPushButton" name="btn_myTickets">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>290</y>
-       <width>81</width>
-       <height>16</height>
+       <x>40</x>
+       <y>260</y>
+       <width>121</width>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">margin-left: -20px;</string>
      </property>
      <property name="text">
       <string>MIS TICKETS</string>
@@ -252,11 +201,11 @@ margin-left: -100px;</string>
       <string/>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton">
+    <widget class="QRadioButton" name="rb_solicitante">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>100</y>
+       <x>20</x>
+       <y>580</y>
        <width>121</width>
        <height>17</height>
       </rect>
@@ -265,17 +214,93 @@ margin-left: -100px;</string>
       <string>Solicitante</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_2">
+    <widget class="QRadioButton" name="rb_responsable">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>120</y>
+       <x>20</x>
+       <y>610</y>
        <width>131</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
       <string>Responsable</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="fr_dashboard">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/left/hogar.png);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="fr_addTicket">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/left/mas.png);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="fr_ticket">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/left/hogar.png);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="fr_myTickets">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>260</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/left/hogar.png);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
      </property>
     </widget>
    </widget>
@@ -339,10 +364,10 @@ line-height: normal;
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="dashboard">
-     <widget class="QWidget" name="resume" native="true">
+     <widget class="QWidget" name="resumen" native="true">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -356,7 +381,7 @@ line-height: normal;
 padding:8px;
 }</string>
       </property>
-      <widget class="QLabel" name="title">
+      <widget class="QLabel" name="lb_litulo">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -386,7 +411,7 @@ color: rgb(237, 237, 237)</string>
         <string>Crear Ticcket</string>
        </property>
       </widget>
-      <widget class="Line" name="line">
+      <widget class="Line" name="linea">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -410,8 +435,8 @@ color: rgb(237, 237, 237)</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="1">
-         <widget class="QWidget" name="assigned" native="true">
-          <widget class="QWidget" name="w_assigned" native="true">
+         <widget class="QWidget" name="asignados" native="true">
+          <widget class="QWidget" name="w_asignado" native="true">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -454,7 +479,7 @@ image: url(:/resume/apreton-de-manos.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_5" native="true">
-              <widget class="QLabel" name="count_assigned">
+              <widget class="QLabel" name="lb_contadorAsignado">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -474,8 +499,8 @@ image: url(:/resume/apreton-de-manos.png);</string>
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QWidget" name="inProgress" native="true">
-          <widget class="QWidget" name="w_inProgress" native="true">
+         <widget class="QWidget" name="enPorreso" native="true">
+          <widget class="QWidget" name="w_enProceso" native="true">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -518,7 +543,7 @@ image: url(:/resume/almuerzo-cohete.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_11" native="true">
-              <widget class="QLabel" name="count_inProgress">
+              <widget class="QLabel" name="lb_contador_enProceso">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -538,8 +563,8 @@ image: url(:/resume/almuerzo-cohete.png);</string>
          </widget>
         </item>
         <item row="0" column="3">
-         <widget class="QWidget" name="finalized" native="true">
-          <widget class="QWidget" name="w_finalized" native="true">
+         <widget class="QWidget" name="finalizados" native="true">
+          <widget class="QWidget" name="w_finalizado" native="true">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -582,7 +607,7 @@ image: url(:/resume/cheque.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_9" native="true">
-              <widget class="QLabel" name="count_finalized">
+              <widget class="QLabel" name="lb_contador_finalizado">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -602,8 +627,8 @@ image: url(:/resume/cheque.png);</string>
          </widget>
         </item>
         <item row="0" column="4">
-         <widget class="QWidget" name="canceled" native="true">
-          <widget class="QWidget" name="w_canceled" native="true">
+         <widget class="QWidget" name="cancelados" native="true">
+          <widget class="QWidget" name="w_cancelado" native="true">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -649,7 +674,7 @@ image: url(:/resume/eliminar.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_7" native="true">
-              <widget class="QLabel" name="count_canceled">
+              <widget class="QLabel" name="lb_contadorCancelados">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -669,8 +694,8 @@ image: url(:/resume/eliminar.png);</string>
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QWidget" name="registered" native="true">
-          <widget class="QWidget" name="w_registered" native="true">
+         <widget class="QWidget" name="registrados" native="true">
+          <widget class="QWidget" name="w_registrados" native="true">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -713,7 +738,7 @@ image: url(:/resume/estrella.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_1" native="true">
-              <widget class="QLabel" name="count_registered">
+              <widget class="QLabel" name="lb_contador_registrados">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -744,7 +769,7 @@ image: url(:/resume/estrella.png);</string>
         <height>451</height>
        </rect>
       </property>
-      <widget class="QTableView" name="table_tickets_dashboar">
+      <widget class="QTableView" name="tb_tickets_dashboar">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -755,7 +780,7 @@ image: url(:/resume/estrella.png);</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="filters" native="true">
+     <widget class="QWidget" name="filtros" native="true">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -799,7 +824,7 @@ image: url(:/resume/estrella.png);</string>
         </property>
        </item>
       </widget>
-      <widget class="QDateEdit" name="date_edit">
+      <widget class="QDateEdit" name="fecha">
        <property name="geometry">
         <rect>
          <x>500</x>
@@ -822,7 +847,7 @@ image: url(:/resume/estrella.png);</string>
         <string>TODOS LOS TICKETS</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_seach">
+      <widget class="QPushButton" name="btn_buscar">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -835,7 +860,7 @@ image: url(:/resume/estrella.png);</string>
         <string>Buscar</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="text_search">
+      <widget class="QLineEdit" name="text_buscar">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -873,7 +898,7 @@ color:  rgb(139, 132, 132);</string>
         <string/>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_employee">
+      <widget class="QComboBox" name="cb_empleado">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -883,7 +908,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_category">
+      <widget class="QComboBox" name="cb_categoria">
        <property name="geometry">
         <rect>
          <x>630</x>
@@ -897,7 +922,7 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>60</y>
          <width>171</width>
          <height>31</height>
         </rect>
@@ -936,7 +961,7 @@ color:  rgb(139, 132, 132);</string>
         <height>81</height>
        </rect>
       </property>
-      <widget class="QLabel" name="title_4">
+      <widget class="QLabel" name="lb_title_4">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -980,7 +1005,7 @@ color: rgb(237, 237, 237)</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="filters_3" native="true">
+     <widget class="QWidget" name="filtros_2" native="true">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -989,7 +1014,7 @@ color: rgb(237, 237, 237)</string>
         <height>111</height>
        </rect>
       </property>
-      <widget class="QComboBox" name="comboBox_5">
+      <widget class="QComboBox" name="cb_status_2">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -998,18 +1023,33 @@ color: rgb(237, 237, 237)</string>
          <height>31</height>
         </rect>
        </property>
+       <item>
+        <property name="text">
+         <string>-------------</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ASIGANDO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EN PROCESO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>FINALIZADO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CANCELADO</string>
+        </property>
+       </item>
       </widget>
-      <widget class="QFontComboBox" name="fontComboBox_14">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>10</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="dateEdit_3">
+      <widget class="QDateEdit" name="fecha_2">
        <property name="geometry">
         <rect>
          <x>500</x>
@@ -1019,7 +1059,81 @@ color: rgb(237, 237, 237)</string>
         </rect>
        </property>
       </widget>
-      <widget class="QFontComboBox" name="fontComboBox_15">
+      <widget class="QPushButton" name="btn_allTickets_2">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>60</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TODOS LOS TICKETS</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_buscar_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>60</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Buscar</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="text_buscar_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">width: 100%;
+  padding: 6px;
+  border: none;
+  outline: none;
+  background: transparent;
+border-bottom: 2px solid rgb(118, 118, 118) ;
+color:  rgb(139, 132, 132);</string>
+       </property>
+       <property name="text">
+        <string>ASUNTO</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_icon_1">
+       <property name="geometry">
+        <rect>
+         <x>146</x>
+         <y>13</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/general/busqueda.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_empleado_2">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>10</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_categoria_2">
        <property name="geometry">
         <rect>
          <x>630</x>
@@ -1029,48 +1143,12 @@ color: rgb(237, 237, 237)</string>
         </rect>
        </property>
       </widget>
-      <widget class="QFontComboBox" name="fontComboBox_16">
+      <widget class="QComboBox" name="cb_1">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>60</y>
-         <width>161</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_13">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>60</y>
-         <width>191</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TODOS LOS TICKETS</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_14">
-       <property name="geometry">
-        <rect>
-         <x>440</x>
-         <y>60</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_3">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>161</width>
+         <width>171</width>
          <height>31</height>
         </rect>
        </property>
@@ -1145,36 +1223,6 @@ color: rgb(237, 237, 237)</string>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <widget class="QFontComboBox" name="fontComboBox_8">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>20</y>
-         <width>171</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QFontComboBox" name="fontComboBox_9">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>360</y>
-         <width>571</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QFontComboBox" name="fontComboBox_10">
-       <property name="geometry">
-        <rect>
-         <x>440</x>
-         <y>20</y>
-         <width>191</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton_8">
        <property name="geometry">
         <rect>
@@ -1431,7 +1479,7 @@ color: rgb(237, 237, 237)</string>
         <rect>
          <x>0</x>
          <y>440</y>
-         <width>741</width>
+         <width>751</width>
          <height>71</height>
         </rect>
        </property>
@@ -1468,16 +1516,6 @@ color: rgb(237, 237, 237)</string>
        </property>
        <property name="text">
         <string>COMENTARIO</string>
-       </property>
-      </widget>
-      <widget class="QFontComboBox" name="fontComboBox_11">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>80</y>
-         <width>191</width>
-         <height>31</height>
-        </rect>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_4">
@@ -1534,6 +1572,46 @@ color: rgb(237, 237, 237)</string>
          <y>90</y>
          <width>110</width>
          <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_departamento">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_categoria_3">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>10</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_prioridad">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>80</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_empleado_3">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>360</y>
+         <width>641</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
@@ -1839,7 +1917,7 @@ color: rgb(237, 237, 237)</string>
   </widget>
  </widget>
  <resources>
-  <include location="../Resources/iconos.qrc"/>
+  <include location="../Resources/iconos/iconos.qrc"/>
  </resources>
  <connections/>
 </ui>
