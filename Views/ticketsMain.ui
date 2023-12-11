@@ -789,7 +789,7 @@ image: url(:/resume/estrella.png);</string>
         <height>111</height>
        </rect>
       </property>
-      <widget class="QComboBox" name="cb_status">
+      <widget class="QComboBox" name="cb_status_d">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -824,7 +824,7 @@ image: url(:/resume/estrella.png);</string>
         </property>
        </item>
       </widget>
-      <widget class="QDateEdit" name="fecha">
+      <widget class="QDateEdit" name="fecha_d">
        <property name="geometry">
         <rect>
          <x>500</x>
@@ -834,7 +834,7 @@ image: url(:/resume/estrella.png);</string>
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_allTickets">
+      <widget class="QPushButton" name="btn_allTickets_d">
        <property name="geometry">
         <rect>
          <x>580</x>
@@ -847,7 +847,7 @@ image: url(:/resume/estrella.png);</string>
         <string>TODOS LOS TICKETS</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_buscar">
+      <widget class="QPushButton" name="btn_buscar_d">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -860,7 +860,7 @@ image: url(:/resume/estrella.png);</string>
         <string>Buscar</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="text_buscar">
+      <widget class="QLineEdit" name="text_buscar_d">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -898,7 +898,7 @@ color:  rgb(139, 132, 132);</string>
         <string/>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_empleado">
+      <widget class="QComboBox" name="cb_empleado_d">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -908,7 +908,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_categoria">
+      <widget class="QComboBox" name="cb_categoria_d">
        <property name="geometry">
         <rect>
          <x>630</x>
@@ -918,7 +918,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_">
+      <widget class="QComboBox" name="cb_departamento_d">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -974,7 +974,7 @@ color:  rgb(139, 132, 132);</string>
         <string>TICKETS</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_12">
+      <widget class="QPushButton" name="btn_add_ticket_t">
        <property name="geometry">
         <rect>
          <x>600</x>
@@ -1014,12 +1014,12 @@ color: rgb(237, 237, 237)</string>
         <height>111</height>
        </rect>
       </property>
-      <widget class="QComboBox" name="cb_status_2">
+      <widget class="QComboBox" name="cb_status_t">
        <property name="geometry">
         <rect>
          <x>190</x>
          <y>10</y>
-         <width>141</width>
+         <width>181</width>
          <height>31</height>
         </rect>
        </property>
@@ -1049,17 +1049,17 @@ color: rgb(237, 237, 237)</string>
         </property>
        </item>
       </widget>
-      <widget class="QDateEdit" name="fecha_2">
+      <widget class="QDateEdit" name="fecha_t">
        <property name="geometry">
         <rect>
-         <x>500</x>
+         <x>650</x>
          <y>10</y>
          <width>121</width>
          <height>31</height>
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_allTickets_2">
+      <widget class="QPushButton" name="btn_allTickets_t">
        <property name="geometry">
         <rect>
          <x>580</x>
@@ -1072,10 +1072,10 @@ color: rgb(237, 237, 237)</string>
         <string>TODOS LOS TICKETS</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_buscar_2">
+      <widget class="QPushButton" name="btn_buscar_t">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>430</x>
          <y>60</y>
          <width>141</width>
          <height>31</height>
@@ -1085,7 +1085,7 @@ color: rgb(237, 237, 237)</string>
         <string>Buscar</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="text_buscar_2">
+      <widget class="QLineEdit" name="text_buscar_t">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -1123,30 +1123,30 @@ color:  rgb(139, 132, 132);</string>
         <string/>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_empleado_2">
+      <widget class="QComboBox" name="cb_empleado_t">
        <property name="geometry">
         <rect>
-         <x>350</x>
+         <x>380</x>
          <y>10</y>
-         <width>141</width>
+         <width>251</width>
          <height>31</height>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_categoria_2">
+      <widget class="QComboBox" name="cb_categoria_t">
        <property name="geometry">
         <rect>
-         <x>630</x>
-         <y>10</y>
-         <width>141</width>
+         <x>20</x>
+         <y>60</y>
+         <width>211</width>
          <height>31</height>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_1">
+      <widget class="QComboBox" name="cb_departamento_t">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>250</x>
          <y>60</y>
          <width>171</width>
          <height>31</height>
@@ -1181,22 +1181,6 @@ color:  rgb(139, 132, 132);</string>
         <string>AGREGAR TICKET</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_7">
-       <property name="geometry">
-        <rect>
-         <x>600</x>
-         <y>10</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Crear Ticcket</string>
-       </property>
-      </widget>
       <widget class="Line" name="line_3">
        <property name="geometry">
         <rect>
@@ -1223,7 +1207,7 @@ color:  rgb(139, 132, 132);</string>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="btn_gurdar_add">
        <property name="geometry">
         <rect>
          <x>270</x>
@@ -1386,7 +1370,7 @@ color:  rgb(139, 132, 132);</string>
         <string>ASUNTO*</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QPlainTextEdit" name="ptext_asunto_add">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1430,7 +1414,7 @@ color:  rgb(139, 132, 132);</string>
         <string>DESCRIPCION*</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_3">
+      <widget class="QPlainTextEdit" name="ptext_descripcion_add">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1472,16 +1456,6 @@ color:  rgb(139, 132, 132);</string>
        </property>
        <property name="text">
         <string>ASIGNAR*</string>
-       </property>
-      </widget>
-      <widget class="QListView" name="listView_5">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>440</y>
-         <width>751</width>
-         <height>71</height>
-        </rect>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_17">
@@ -1565,7 +1539,7 @@ color:  rgb(139, 132, 132);</string>
         <string>FECHA SOLUCION</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit">
+      <widget class="QDateEdit" name="fecha_add">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -1575,43 +1549,73 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_departamento">
+      <widget class="QComboBox" name="cb_departamento_add">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>110</x>
          <y>20</y>
-         <width>141</width>
+         <width>211</width>
          <height>31</height>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_categoria_3">
+      <widget class="QComboBox" name="cb_categoria_add">
        <property name="geometry">
         <rect>
-         <x>420</x>
-         <y>10</y>
-         <width>141</width>
+         <x>410</x>
+         <y>20</y>
+         <width>261</width>
          <height>31</height>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_prioridad">
+      <widget class="QComboBox" name="cb_prioridad_add">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>90</x>
          <y>80</y>
-         <width>141</width>
+         <width>171</width>
          <height>31</height>
         </rect>
        </property>
+       <item>
+        <property name="text">
+         <string>----------</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BAJA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MEDIA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ALTA</string>
+        </property>
+       </item>
       </widget>
-      <widget class="QComboBox" name="cb_empleado_3">
+      <widget class="QComboBox" name="cb_empleado_add">
        <property name="geometry">
         <rect>
          <x>110</x>
          <y>360</y>
          <width>641</width>
          <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_comentarios_add">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>440</y>
+         <width>751</width>
+         <height>61</height>
         </rect>
        </property>
       </widget>
@@ -1630,27 +1634,7 @@ color:  rgb(139, 132, 132);</string>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <widget class="QFontComboBox" name="fontComboBox_26">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>70</y>
-         <width>171</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QFontComboBox" name="fontComboBox_27">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>150</y>
-         <width>301</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_25">
+      <widget class="QPushButton" name="btn_guardar_asg">
        <property name="geometry">
         <rect>
          <x>290</x>
@@ -1663,7 +1647,7 @@ color:  rgb(139, 132, 132);</string>
         <string>GUARDAR</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_26">
+      <widget class="QPushButton" name="btn_enviar_asg">
        <property name="geometry">
         <rect>
          <x>620</x>
@@ -1727,8 +1711,8 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QLabel" name="lbl_nombre_11">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>80</y>
+         <x>10</x>
+         <y>70</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1761,8 +1745,8 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QLabel" name="lbl_nombre_15">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>160</y>
+         <x>20</x>
+         <y>150</y>
          <width>61</width>
          <height>24</height>
         </rect>
@@ -1792,21 +1776,11 @@ color:  rgb(139, 132, 132);</string>
         <string>ASIGNAR*</string>
        </property>
       </widget>
-      <widget class="QListView" name="listView_3">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>290</y>
-         <width>731</width>
-         <height>71</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="title_10">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>20</y>
+         <x>20</x>
+         <y>10</y>
          <width>61</width>
          <height>31</height>
         </rect>
@@ -1815,20 +1789,10 @@ color:  rgb(139, 132, 132);</string>
         <string>ASUNTO</string>
        </property>
       </widget>
-      <widget class="QListView" name="listView_4">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>20</y>
-         <width>561</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="lbl_nombre_16">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>260</y>
          <width>111</width>
          <height>24</height>
@@ -1859,6 +1823,46 @@ color:  rgb(139, 132, 132);</string>
         <string>COMENTARIO</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="cb_empleado_asg">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>150</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_departamento_asg">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_asunto_asg">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_comentarios_asg">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>260</y>
+         <width>631</width>
+         <height>61</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="resume_9" native="true">
       <property name="geometry">
@@ -1882,7 +1886,7 @@ color:  rgb(139, 132, 132);</string>
         <string>ASIGNAR TICKET</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_27">
+      <widget class="QPushButton" name="btn_editarTicket">
        <property name="geometry">
         <rect>
          <x>600</x>

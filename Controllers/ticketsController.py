@@ -34,7 +34,16 @@ class CrontrollerTicket:
         nombres = " ".join([str(nombreCompleto[0]), str(nombreCompleto[1])])
         self.vista.lb_nombre.setText(nombres)
         self.vista.rb_solicitante.setChecked(True)
-        self.controllerComon.llenarCbDepartameto(self.vista.cb_departamento)
+        self.controllerComon.llenarCbDepartameto(self.vista.cb_departamento_d)
+        self.controllerComon.llenarCbDepartameto(self.vista.cb_departamento_t)
+        self.controllerComon.llenarCbDepartameto(self.vista.cb_departamento_add)
+        self.controllerComon.llenarCbDepartameto(self.vista.cb_departamento_asg)
+
+        self.controllerComon.llenarCbCategorias(self.vista.cb_categoria_d)
+        self.controllerComon.llenarCbCategorias(self.vista.cb_categoria_t)
+        self.controllerComon.llenarCbCategorias(self.vista.cb_categoria_add)
+
+
 
     #EVENTOS
     def evtRadio_button_toggled(self, state):

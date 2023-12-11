@@ -1,4 +1,5 @@
 from Models.departamentosModel import BaseDepartamentos, ModelDepartamento
+from Models.categoriasTicketsModel import BaseCategorias, ModelCategoria
 
 
 class ControllerComun:
@@ -9,11 +10,23 @@ class ControllerComun:
         '''
         Llenar el combo box: departamentos
         '''
-        self.model =ModelDepartamento()
-        departamentos_list =  self.model.baseDepartamentosAll()
+        model =ModelDepartamento()
+        departamentos_list =  model.baseDepartamentosAll()
 
         for fila in departamentos_list:
             departamento = BaseDepartamentos(fila[0],fila[1])
-            comboBox.addItem(departamento.departemanto) 
+            comboBox.addItem(departamento.departemanto, departamento.idDepartamento) 
 
+
+    def llenarCbCategorias(self, comboBox):
+        '''
+            Llenar el combo box: Tipo de documento
+        '''
+        comboBox.clear() 
+        model = ModelCategoria()
+        categorias_list =  model.baseCategoriasAll()
+
+        for fila in categorias_list:
+            categoria = BaseCategorias(fila[0],fila[1])
+            comboBox.addItem(categoria.categoria, categoria.idCategoria)
    

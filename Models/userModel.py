@@ -51,3 +51,25 @@ class ModelUser:
         finally:
             if hasattr(self, 'c'):
                 self.c.cursor.close()
+
+    def usuariosASolicitar(self):
+        self.c = cn.DataBase()
+        try:  
+          x='''SELECT ID_CEMPLEADO, NOMBRE FROM
+                OPS.Catalogo_Empleados as e, 
+                OPS.RH_Cat_Puestos as p , 
+                RH_Cat_Departamentos d 
+                where e.ACTIVO= 1 and 
+                (d.ID_RHCDEPARTAMENTO = 4  or 
+                d.ID_RHCDEPARTAMENTO = 15  or  e.ID_CEMPLEADO = 29) and 
+                d.ID_RHCDEPARTAMENTO = p.ID_RHCDEPARTAMENTO and 
+                e.ID_RHCPUESTO  = p.ID_RHCPUESTO ;'''
+          self.c.cursor.execute(x)
+          self.c.connection.commit()
+          r=self.c.cursor.fetchall()
+          return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
