@@ -30,6 +30,7 @@ class CrontrollerTicket:
         ''' 
             Descripcion: llenar la informacion inicial apartir que el usuario logeando
         '''
+        self.cambiarPagina(0)
         nombreCompleto = BdUsurio.nombre.split()
         nombres = " ".join([str(nombreCompleto[0]), str(nombreCompleto[1])])
         self.vista.lb_nombre.setText(nombres)
@@ -43,6 +44,15 @@ class CrontrollerTicket:
         self.controllerComon.llenarCbCategorias(self.vista.cb_categoria_t)
         self.controllerComon.llenarCbCategorias(self.vista.cb_categoria_add)
 
+        self.controllerComon.llenarCbEmpleados(self.vista.cb_empleado_d)
+        self.controllerComon.llenarCbEmpleados(self.vista.cb_empleado_t)
+        self.controllerComon.llenarCbEmpleados(self.vista.cb_empleado_add)
+        self.controllerComon.llenarCbEmpleados(self.vista.cb_empleado_asg)
+
+        self.controllerComon.llenarCbEstado(self.vista.cb_status_d)
+        self.controllerComon.llenarCbEstado(self.vista.cb_status_t)
+        self.controllerComon.llenarCbPrioridad(self.vista.cb_prioridad_add)
+
 
 
     #EVENTOS
@@ -54,6 +64,7 @@ class CrontrollerTicket:
             Args:
                 state:estado del radio button
         '''
+        self.cambiarPagina(0)
         if  self.vista.rb_responsable.isChecked() == True:
             self.modo_responsable()
         elif self.vista.rb_solicitante.isChecked() == True:
