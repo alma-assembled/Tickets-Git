@@ -50,10 +50,11 @@ class ControllerComun:
         '''
         comboBox.clear() 
         comboBox.addItem("-------",0)
-        comboBox.addItem("ASIGNADOS","A")
-        comboBox.addItem("EN PROCESO","P")
-        comboBox.addItem("FINALIZADO","F")
-        comboBox.addItem("CANCELADOS","C")
+        comboBox.addItem("ASIGNADo","ASIGNADO")
+        comboBox.addItem("EN PROCESO","PROCESO")
+        comboBox.addItem("TERMINADO","TEMINADO")
+        comboBox.addItem("CERRADO","CERRADO")
+        comboBox.addItem("CANCELDO","CANCELADO")
 
     def llenarCbPrioridad(self, comboBox):
         '''
@@ -61,6 +62,6 @@ class ControllerComun:
         '''
         comboBox.clear() 
         comboBox.addItem("-------",0)
-        comboBox.addItem("ALTA","A")
-        comboBox.addItem("MEDIA","M")
-        comboBox.addItem("BAJA","B")
+        comboBox.addItem("ALTA","ALTA")
+        comboBox.addItem("MEDIA","MEDIA")
+        comboBox.addItem("BAJA","BAJA")

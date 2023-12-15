@@ -1,0 +1,208 @@
+<mxfile host="65bd71144e">
+    <diagram id="scuHwiydv_O_bVZE13SM" name="Solicitante">
+        <mxGraphModel dx="921" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" parent="1" source="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="550" y="145" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="&lt;div style=&quot;&quot;&gt;Crear ticket&lt;/div&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-fecha Creacion&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-prioridad&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="381.09000000000003" y="90" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="edgeStyle=none;html=1;" parent="1" source="16" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="381.09000000000003" y="305" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" style="edgeStyle=none;html=1;" parent="1" source="16" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="16" target="40" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="MIS TICKET&lt;br&gt;SOLICITADOS" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="400" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="17" target="16" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="150" y="385" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=none;html=1;" parent="1" source="17" target="46" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="161.09" y="334" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="Solicitante" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="310" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="22" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Solicitados&lt;br&gt;(Asignados)" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="380.09000000000003" y="265" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7-yIBtPUwgYU9D24ViGa-48" style="edgeStyle=none;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="23" target="22" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="551.09" y="110" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="24" edge="1" target="37">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="750" y="305" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="&lt;br&gt;&lt;br&gt;CAMBIAR ESTATUS&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="531.09" y="255" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="29" target="30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Proceso" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="371.09000000000003" y="435" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="30" target="44" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="720" y="490" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" style="edgeStyle=none;html=1;" parent="1" source="30" target="37" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;br&gt;&lt;br&gt;CAMBIAR ESTATUS&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="531.09" y="425" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Cancelar" style="ellipse;whiteSpace=wrap;html=1;align=center;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="810" y="290" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=none;html=1;" parent="1" source="40" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="551.09" y="665" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="Terminados" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="380.09000000000003" y="625" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;" parent="1" source="42" edge="1" target="44">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="731.09" y="665" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="&lt;br&gt;&lt;br&gt;CAMBIAR ESTATUS&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="551.09" y="600" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="if_3dbpnUV9V_eQXsUBo-48" style="edgeStyle=none;html=1;entryX=0;entryY=0.909;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="44" target="7-yIBtPUwgYU9D24ViGa-49" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="cerrar" style="ellipse;whiteSpace=wrap;html=1;align=center;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="490" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;entryX=-0.042;entryY=0.327;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="46" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="Solicitar&amp;nbsp; Ticket" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7-yIBtPUwgYU9D24ViGa-49" value="&lt;div style=&quot;&quot;&gt;Editar ticket&lt;/div&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-fecha Cierre&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="390" width="120" height="110" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="0lll3osvBiVf5LUSAg0J" name="Responsable">
+        <mxGraphModel dx="832" dy="475" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-8" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-4" target="3Bu8x-ejk-zhrNJeGHdw-14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-4" value="&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="75" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-6" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-9">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="381.09000000000015" y="305" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-7" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-9" target="3Bu8x-ejk-zhrNJeGHdw-20">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-9" value="Ticket Asignados" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="400" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-10" style="edgeStyle=none;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-12" target="3Bu8x-ejk-zhrNJeGHdw-9">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="150" y="385" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-12" value="Responsable" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="310" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-2" style="edgeStyle=none;html=1;entryX=-0.017;entryY=0.564;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-14" target="HT4opOuhpUTZzaBkYxvF-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-14" target="HT4opOuhpUTZzaBkYxvF-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-14" value="Asignados" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="380.09000000000003" y="280" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-9" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-17" target="3Bu8x-ejk-zhrNJeGHdw-20">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-17" value="&lt;br&gt;&lt;br&gt;CAMBIAR ESTATUS&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="250" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="YBHy7MP0j745wcqkfGp--2" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-20" target="3Bu8x-ejk-zhrNJeGHdw-24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-20" value="En Proceso" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="371.09000000000003" y="495" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-21" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-24">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="832.2842999941781" y="502.7014250014554" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-22" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-24">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="832.2842999941781" y="502.7014250014554" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-24" value="&lt;br&gt;&lt;br&gt;CAMBIAR ESTATUS&lt;br&gt;Liena tiempo&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;fehca&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;usuario&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Id ticket&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="570" y="470" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-11" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3Bu8x-ejk-zhrNJeGHdw-25">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1070" y="498" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3Bu8x-ejk-zhrNJeGHdw-25" value="Teminar" style="ellipse;whiteSpace=wrap;html=1;align=center;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="831.09" y="458" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-3" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="HT4opOuhpUTZzaBkYxvF-1" target="3Bu8x-ejk-zhrNJeGHdw-17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-1" value="&lt;div style=&quot;&quot;&gt;Ticket editar&lt;/div&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-fecha solucion&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="521.09" y="275" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-6" style="edgeStyle=none;html=1;" edge="1" parent="1" source="HT4opOuhpUTZzaBkYxvF-4" target="3Bu8x-ejk-zhrNJeGHdw-4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="520" y="185" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-4" value="Reasignar&amp;nbsp;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360.09" y="95" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="HT4opOuhpUTZzaBkYxvF-10" value="&lt;div style=&quot;&quot;&gt;Ticket editar&lt;/div&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-fecha fin&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="whiteSpace=wrap;html=1;rounded=0;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="458" width="120" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

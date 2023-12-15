@@ -364,7 +364,7 @@ line-height: normal;
 </string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="dashboard">
      <widget class="QWidget" name="resumen" native="true">
@@ -436,20 +436,6 @@ color: rgb(237, 237, 237)</string>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="1">
          <widget class="QWidget" name="asignados" native="true">
-          <widget class="QWidget" name="w_asignado" native="true">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>20</y>
-             <width>61</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: #3B96D8;
-image: url(:/resume/apreton-de-manos.png);</string>
-           </property>
-          </widget>
           <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
@@ -472,7 +458,7 @@ image: url(:/resume/apreton-de-manos.png);</string>
                 </rect>
                </property>
                <property name="text">
-                <string>Asignados</string>
+                <string>En proceso</string>
                </property>
               </widget>
              </widget>
@@ -496,10 +482,6 @@ image: url(:/resume/apreton-de-manos.png);</string>
             </item>
            </layout>
           </widget>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QWidget" name="enPorreso" native="true">
           <widget class="QWidget" name="w_enProceso" native="true">
            <property name="geometry">
             <rect>
@@ -514,6 +496,10 @@ image: url(:/resume/apreton-de-manos.png);</string>
 image: url(:/resume/almuerzo-cohete.png);</string>
            </property>
           </widget>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QWidget" name="enPorreso" native="true">
           <widget class="QWidget" name="layoutWidget_4">
            <property name="geometry">
             <rect>
@@ -536,7 +522,7 @@ image: url(:/resume/almuerzo-cohete.png);</string>
                 </rect>
                </property>
                <property name="text">
-                <string>En Proceso</string>
+                <string>Terminados</string>
                </property>
               </widget>
              </widget>
@@ -560,10 +546,6 @@ image: url(:/resume/almuerzo-cohete.png);</string>
             </item>
            </layout>
           </widget>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QWidget" name="finalizados" native="true">
           <widget class="QWidget" name="w_finalizado" native="true">
            <property name="geometry">
             <rect>
@@ -578,6 +560,10 @@ image: url(:/resume/almuerzo-cohete.png);</string>
 image: url(:/resume/cheque.png);</string>
            </property>
           </widget>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QWidget" name="finalizados" native="true">
           <widget class="QWidget" name="layoutWidget_3">
            <property name="geometry">
             <rect>
@@ -600,7 +586,7 @@ image: url(:/resume/cheque.png);</string>
                 </rect>
                </property>
                <property name="text">
-                <string>Finalizados</string>
+                <string>Cerrados</string>
                </property>
               </widget>
              </widget>
@@ -623,6 +609,20 @@ image: url(:/resume/cheque.png);</string>
              </widget>
             </item>
            </layout>
+          </widget>
+          <widget class="QWidget" name="w_asignado" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>20</y>
+             <width>61</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: #3B96D8;
+image: url(:/resume/apreton-de-manos.png);</string>
+           </property>
           </widget>
          </widget>
         </item>
@@ -731,7 +731,7 @@ image: url(:/resume/estrella.png);</string>
                 </rect>
                </property>
                <property name="text">
-                <string>Registrados</string>
+                <string>Asignados</string>
                </property>
               </widget>
              </widget>
