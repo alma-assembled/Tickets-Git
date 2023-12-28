@@ -364,7 +364,7 @@ line-height: normal;
 </string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="dashboard">
      <widget class="QWidget" name="resumen" native="true">
