@@ -83,10 +83,12 @@ class CrontrollerTicket:
         asunto = self.vista.ptext_asunto_add.toPlainText()
         descripcion = self.vista.ptext_descripcion_add.toPlainText()
         folio = "000"
+
         fecha = self.fecha()
         status = "ASIGNADO"
 
         print(id_empleado)
+
         if (id_departamento == 0 or id_categoria == 0 or id_empleado == 0 or prioridad == 0 or asunto == ""
                 or descripcion == ""):
             self.mensaje.setText("Debes llenar todos los campos")
@@ -122,7 +124,7 @@ class CrontrollerTicket:
         self.vista.fr_myTickets.setVisible(fr_mytickets)
 
     def fecha(self):
-        """Definir hora que se guardara """
+        """ Definir hora que se guardara """
         self.hora_inicial = datetime.datetime.now().time()
         fecha = QDate.currentDate()
         fecha_text = fecha.toString('yyyy-MM-dd')
