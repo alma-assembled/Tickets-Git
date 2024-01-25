@@ -4,6 +4,7 @@ from PyQt5.QtCore import QDate
 import datetime
 from Controllers.comunController import ControllerComun
 from Models.ticketsModel import ModelTickets
+from Models.folioModel import ModelFolio
 
 
 class CrontrollerTicket:
@@ -16,6 +17,7 @@ class CrontrollerTicket:
 
         # MODELOS
         self.modelo_ticket = ModelTickets()
+        self.modelo_folio_ticket = ModelFolio()
 
         # INICIAL
         self.llenar_info_inicial()
@@ -82,23 +84,20 @@ class CrontrollerTicket:
         id_empleado = self.vista.cb_empleado_add.currentData()
         asunto = self.vista.ptext_asunto_add.toPlainText()
         descripcion = self.vista.ptext_descripcion_add.toPlainText()
-        folio = "000"
-
         fecha = self.fecha()
         status = "ASIGNADO"
-
-        print(id_empleado)
-
         if (id_departamento == 0 or id_categoria == 0 or id_empleado == 0 or prioridad == 0 or asunto == ""
                 or descripcion == ""):
             self.mensaje.setText("Debes llenar todos los campos")
             self.mensaje.exec_()
             return
-        id_ticket = self.modelo_ticket.guardar_ticket(asunto, descripcion, folio, prioridad, fecha, id_categoria,
-                                                      id_departamento, BdUsurio.idEmpleado)
-        print(id_departamento)
+        numero_consecutivo_folio = self.modelo_folio_ticket.generar_numero_foliodepartamento(id_departamento)
+        id_folio = self.modelo_folio_ticket.create_folio(numero_consecutivo_folio, id_departamento)
+        folio_generado = self.modelo_folio_ticket.obtener_folio_byid(id_folio)
+        id_ticket = self.modelo_ticket.guardar_ticket(asunto, descripcion, prioridad, fecha, id_categoria,
+                                                      id_departamento, BdUsurio.idEmpleado, id_folio)
         self.modelo_ticket.guardar_lineatiempo(status, fecha, id_ticket, id_empleado)
-        self.mensaje.setText("Guardado")
+        self.mensaje.setText("Ticket " + str(folio_generado) + " generado correctamente")
         self.mensaje.exec_()
         return
 

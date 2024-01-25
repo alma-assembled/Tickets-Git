@@ -13,13 +13,14 @@ class ModelTickets:
         self.c = cn.DataBase()
         pass
 
-    def guardar_ticket(self, asunto, descripcion, folio, prioridad, fecha_creacion, id_ticket_categoria, id_departameto,
-                       id_empleado):
+    def guardar_ticket(self, asunto, descripcion, prioridad, fecha_creacion, id_ticket_categoria, id_departameto,
+                       id_empleado,id_folio):
         self.c = cn.DataBase()
-        x = ("INSERT INTO `OPS`.`Base_Ticket` (`ASUNTO`, `DESCRIPCION`, `FOLIO`, `PRIORIDAD`, `FECHA_CREACION`,"
-             " `ID_BTICKETCATEGORIAS`, `ID_RHCDEPARTAMENTO`, `ID_CEMPLEADO`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);")
-        v = (str(asunto), str(descripcion), str(folio), str(prioridad), str(fecha_creacion), id_ticket_categoria,
-             id_departameto, id_empleado)
+        x = ("INSERT INTO `OPS`.`Base_Ticket` (`ASUNTO`, `DESCRIPCION`, `PRIORIDAD`, `FECHA_CREACION`,"
+             " `ID_BTICKETCATEGORIAS`, `ID_RHCDEPARTAMENTO`, `ID_CEMPLEADO`,`ID_BTICKETFOLIO`) "
+             "VALUES (%s, %s, %s, %s, %s, %s, %s, %s);")
+        v = (str(asunto), str(descripcion), str(prioridad), str(fecha_creacion), id_ticket_categoria,
+             id_departameto, id_empleado, id_folio)
         try:
             self.c.cursor.execute(x, v)
             self.c.connection.commit()

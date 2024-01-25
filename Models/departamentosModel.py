@@ -15,9 +15,9 @@ class ModelDepartamento:
 
     def base_departamentosall(self):
         self.c = cn.DataBase()
-        try:  
-            x = ("SELECT ID_RHCDEPARTAMENTO, DEPARTAMENTO FROM OPS.RH_Cat_Departamentos where activo= 1 "
-                 " order by DEPARTAMENTO;")
+        try:
+            x = ("SELECT ID_RHCDEPARTAMENTO, DEPARTAMENTO, CLAVE  FROM OPS.RH_Cat_Departamentos where activo= 1 "
+                 " and ID_RHCDEPARTAMENTO = 4 or ID_RHCDEPARTAMENTO= 15 order by DEPARTAMENTO;")
             self.c.cursor.execute(x)
             self.c.connection.commit()
             r = self.c.cursor.fetchall()
