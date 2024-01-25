@@ -9,6 +9,7 @@ from Models.folioModel import ModelFolio
 
 class CrontrollerTicket:
     def __init__(self, vista, ventana):
+        self.solicitante = True
         self.hora_inicial = None
         self.vista = vista
         self.ventana = ventana
@@ -106,9 +107,11 @@ class CrontrollerTicket:
         self.vista.multiWidget.setCurrentIndex(index)
 
     def modo_solicitante(self):
+        self.solicitante = True
         self.setwidgetsvisibility(True, True, True, True, True, True, False, False)
 
     def modo_responsable(self):
+        self.solicitante = False
         self.setwidgetsvisibility(True, True, False, False, True, True, False, False)
 
     def setwidgetsvisibility(self, btn_dashboard, fr_dashboard, btn_addticket, fr_addticket, btn_ticket, fr_ticket,

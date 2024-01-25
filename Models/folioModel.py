@@ -61,7 +61,7 @@ class ModelFolio:
         self.c = cn.DataBase()
         try:
             x = ("SELECT D.CLAVE,  F.FOLIO AS FOLIO FROM OPS.RH_Cat_Departamentos D, OPS.Base_Ticket_Folios F WHERE "
-                 "F.ID_BTICKETFOLIO = "+str(id_ticket) +" AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO;")
+                 "F.ID_BTICKETFOLIO = "+str(id_ticket) + " AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO;")
             self.c.cursor.execute(x)
             self.c.connection.commit()
             r = self.c.cursor.fetchone()
