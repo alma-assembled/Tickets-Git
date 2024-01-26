@@ -5,6 +5,7 @@ import datetime
 from Controllers.comunController import ControllerComun
 from Models.ticketsModel import ModelTickets
 from Models.folioModel import ModelFolio
+from PyQt5.QtGui import QStandardItemModel,  QStandardItem, QIntValidator
 
 
 class CrontrollerTicket:
@@ -37,6 +38,14 @@ class CrontrollerTicket:
         self.vista.btn_ticket.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_myTickets.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_gurdar_add.clicked.connect(self.evtguardar_ticket)
+
+        # Descripcion: crear un modelo y asignar la cabecera de las tabla
+        self.tb_dashboart_modelo = QStandardItemModel()
+        self.tb_dashboart_modelo.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "AUTOR", "TITULO", "DEPARTAMENTO"])
+        self.vista.tb_tickets_dashboar.setModel(self.tb_dashboart_modelo)
+        self.vista.tb_tickets_dashboar.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows) 
+        # Crear un modelo para el QlistView
+        self.model_ops = QStandardItemModel()
 
     def llenar_info_inicial(self):
         """
@@ -132,3 +141,5 @@ class CrontrollerTicket:
         fecha_text = fecha.toString('yyyy-MM-dd')
         fecha_creacion = (str(fecha_text) + " " + str(self.hora_inicial))
         return fecha_creacion
+
+    

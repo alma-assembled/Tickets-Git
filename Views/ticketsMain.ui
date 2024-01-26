@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>951</width>
-    <height>688</height>
+    <height>717</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -364,7 +364,7 @@ line-height: normal;
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="dashboard">
      <widget class="QWidget" name="resumen" native="true">
@@ -1118,7 +1118,7 @@ color:  rgb(139, 132, 132);</string>
         <height>61</height>
        </rect>
       </property>
-      <widget class="QLabel" name="title_3">
+      <widget class="QLabel" name="lbl_agregar_ticket">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1144,14 +1144,82 @@ color:  rgb(139, 132, 132);</string>
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
+      <widget class="QLabel" name="lbl_n_ticket">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>10</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>XX0000</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_n_ticket_2">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>10</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>TICKET:</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="add" native="true">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>70</y>
         <width>781</width>
-        <height>571</height>
+        <height>601</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1161,9 +1229,9 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>400</y>
-         <width>141</width>
-         <height>31</height>
+         <y>290</y>
+         <width>131</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
@@ -1176,7 +1244,7 @@ color:  rgb(139, 132, 132);</string>
        </property>
        <property name="geometry">
         <rect>
-         <x>680</x>
+         <x>670</x>
          <y>20</y>
          <width>100</width>
          <height>40</height>
@@ -1249,7 +1317,7 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>DEPARTAMENTO</string>
+        <string>DEPARTAMENTO*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_2">
@@ -1283,14 +1351,14 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>CATEGORIA</string>
+        <string>CATEGORIA*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_3">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>140</y>
+         <x>10</x>
+         <y>100</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1323,18 +1391,18 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QPlainTextEdit" name="ptext_asunto_add">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>180</y>
+         <x>10</x>
+         <y>120</y>
          <width>751</width>
-         <height>61</height>
+         <height>41</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_7">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>250</y>
+         <x>10</x>
+         <y>160</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1367,8 +1435,8 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QPlainTextEdit" name="ptext_descripcion_add">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>280</y>
+         <x>10</x>
+         <y>180</y>
          <width>751</width>
          <height>61</height>
         </rect>
@@ -1378,8 +1446,8 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>370</y>
-         <width>131</width>
+         <y>250</y>
+         <width>91</width>
          <height>24</height>
         </rect>
        </property>
@@ -1412,7 +1480,7 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>410</y>
+         <y>500</y>
          <width>111</width>
          <height>24</height>
         </rect>
@@ -1446,7 +1514,7 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>80</y>
+         <y>60</y>
          <width>81</width>
          <height>24</height>
         </rect>
@@ -1473,14 +1541,14 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>PRIORIDAD</string>
+        <string>PRIORIDAD*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lb_fechaSolucion">
        <property name="geometry">
         <rect>
-         <x>360</x>
-         <y>90</y>
+         <x>330</x>
+         <y>70</y>
          <width>121</width>
          <height>16</height>
         </rect>
@@ -1492,10 +1560,10 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QDateEdit" name="fecha_add">
        <property name="geometry">
         <rect>
-         <x>510</x>
-         <y>90</y>
-         <width>110</width>
-         <height>22</height>
+         <x>450</x>
+         <y>60</y>
+         <width>201</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
@@ -1512,9 +1580,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QComboBox" name="cb_categoria_add">
        <property name="geometry">
         <rect>
-         <x>400</x>
+         <x>450</x>
          <y>20</y>
-         <width>251</width>
+         <width>201</width>
          <height>31</height>
         </rect>
        </property>
@@ -1522,9 +1590,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QComboBox" name="cb_prioridad_add">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>80</y>
-         <width>171</width>
+         <x>110</x>
+         <y>60</y>
+         <width>211</width>
          <height>31</height>
         </rect>
        </property>
@@ -1532,8 +1600,8 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QComboBox" name="cb_empleado_add">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>360</y>
+         <x>120</x>
+         <y>250</y>
          <width>641</width>
          <height>31</height>
         </rect>
@@ -1543,23 +1611,33 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>440</y>
+         <y>520</y>
          <width>751</width>
-         <height>61</height>
+         <height>41</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="btn_enviar_add">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>510</y>
-         <width>141</width>
-         <height>31</height>
+         <x>710</x>
+         <y>560</y>
+         <width>51</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
         <string>Enviar</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="pt_comentarios">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>320</y>
+         <width>751</width>
+         <height>171</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -1569,7 +1647,7 @@ color:  rgb(139, 132, 132);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>60</y>
+        <y>70</y>
         <width>781</width>
         <height>571</height>
        </rect>
@@ -1580,27 +1658,14 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QPushButton" name="btn_guardar_asg">
        <property name="geometry">
         <rect>
-         <x>290</x>
-         <y>200</y>
-         <width>141</width>
-         <height>31</height>
+         <x>460</x>
+         <y>180</y>
+         <width>131</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
-        <string>GUARDAR</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btn_enviar_asg">
-       <property name="geometry">
-        <rect>
-         <x>620</x>
-         <y>370</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Enviar</string>
+        <string>REASIGNAR</string>
        </property>
       </widget>
       <widget class="QDateEdit" name="dte_fechoy_3">
@@ -1655,7 +1720,7 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>70</y>
+         <y>60</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1688,7 +1753,7 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QLabel" name="lbl_nombre_15">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>150</y>
          <width>61</width>
          <height>24</height>
@@ -1722,7 +1787,7 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QLabel" name="title_10">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>10</y>
          <width>61</width>
          <height>31</height>
@@ -1732,11 +1797,74 @@ color:  rgb(139, 132, 132);</string>
         <string>ASUNTO</string>
        </property>
       </widget>
-      <widget class="QLabel" name="lbl_nombre_16">
+      <widget class="QComboBox" name="cb_empleado_asg">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>260</y>
+         <x>120</x>
+         <y>140</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_departamento_asg">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>50</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_asunto_asg">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_enviar_add_3">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>540</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enviar</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="pt_comentarios_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>250</y>
+         <width>751</width>
+         <height>221</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_comentarios_add_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>500</y>
+         <width>751</width>
+         <height>41</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_nombre_19">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>470</y>
          <width>111</width>
          <height>24</height>
         </rect>
@@ -1763,47 +1891,122 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>COMENTARIO</string>
+        <string>COMENTAR</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_empleado_asg">
+      <widget class="QLabel" name="lbl_nombre_20">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>150</y>
-         <width>471</width>
-         <height>31</height>
+         <x>10</x>
+         <y>210</y>
+         <width>111</width>
+         <height>24</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>COMENTARIOS</string>
+       </property>
       </widget>
-      <widget class="QComboBox" name="cb_departamento_asg">
+      <widget class="QLabel" name="lbl_nombre_21">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>70</y>
-         <width>351</width>
-         <height>31</height>
+         <x>10</x>
+         <y>100</y>
+         <width>61</width>
+         <height>24</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>ESTATUS</string>
+       </property>
       </widget>
-      <widget class="QPlainTextEdit" name="ptext_asunto_asg">
+      <widget class="QLabel" name="lbl_nombre_22">
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>10</y>
-         <width>511</width>
-         <height>41</height>
+         <y>100</y>
+         <width>111</width>
+         <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>COMENTARIOS</string>
+       </property>
       </widget>
-      <widget class="QPlainTextEdit" name="ptext_comentarios_asg">
+      <widget class="QPushButton" name="btn_guardar_asg_3">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>260</y>
-         <width>631</width>
-         <height>61</height>
+         <x>260</x>
+         <y>100</y>
+         <width>131</width>
+         <height>21</height>
         </rect>
+       </property>
+       <property name="text">
+        <string>SIG ESTADO</string>
        </property>
       </widget>
      </widget>
@@ -1826,23 +2029,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
        <property name="text">
-        <string>ASIGNAR TICKET</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btn_editarTicket">
-       <property name="geometry">
-        <rect>
-         <x>600</x>
-         <y>10</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Editar Ticcket</string>
+        <string>REASIGNAR TICKET</string>
        </property>
       </widget>
       <widget class="Line" name="line_9">
@@ -1856,6 +2043,22 @@ color:  rgb(139, 132, 132);</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_editarTicket">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>30</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Editar Ticcket</string>
        </property>
       </widget>
      </widget>
