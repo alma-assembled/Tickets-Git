@@ -5,7 +5,7 @@ import datetime
 from Controllers.comunController import ControllerComun
 from Models.ticketsModel import ModelTickets
 from Models.folioModel import ModelFolio
-from PyQt5.QtGui import QStandardItemModel,  QStandardItem, QIntValidator
+from PyQt5.QtGui import QStandardItemModel
 
 
 class CrontrollerTicket:
@@ -20,10 +20,6 @@ class CrontrollerTicket:
         # MODELOS
         self.modelo_ticket = ModelTickets()
         self.modelo_folio_ticket = ModelFolio()
-
-        # INICIAL
-        self.llenar_info_inicial()
-        self.modo_solicitante()
         
         # INICIALIZAR MENSAJES
         self.mensaje = QtWidgets.QMessageBox()
@@ -41,11 +37,16 @@ class CrontrollerTicket:
 
         # Descripcion: crear un modelo y asignar la cabecera de las tabla
         self.tb_dashboart_modelo = QStandardItemModel()
-        self.tb_dashboart_modelo.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "AUTOR", "TITULO", "DEPARTAMENTO"])
+        self.tb_dashboart_modelo.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
+                                                            "CATEGORIA", "RESPONSABLE","PRIORIDAD", "STATUS"])
         self.vista.tb_tickets_dashboar.setModel(self.tb_dashboart_modelo)
         self.vista.tb_tickets_dashboar.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows) 
         # Crear un modelo para el QlistView
         self.model_ops = QStandardItemModel()
+
+        # INICIAL
+        self.llenar_info_inicial()
+        self.modo_solicitante()
 
     def llenar_info_inicial(self):
         """
@@ -74,7 +75,10 @@ class CrontrollerTicket:
         self.controllerComon.llenar_cbestado(self.vista.cb_status_t)
         self.controllerComon.llenar_cbprioridad(self.vista.cb_prioridad_add)
 
+        # TABLA DASBOART
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.solicitante)
     # EVENTOS
+
     def evtradio_button_toggled(self):
         """
         Descripcion:
@@ -134,6 +138,8 @@ class CrontrollerTicket:
         self.vista.btn_myTickets.setVisible(btn_mytickets)
         self.vista.fr_myTickets.setVisible(fr_mytickets)
 
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.solicitante)
+
     def fecha(self):
         """ Definir hora que se guardara """
         self.hora_inicial = datetime.datetime.now().time()
@@ -142,4 +148,3 @@ class CrontrollerTicket:
         fecha_creacion = (str(fecha_text) + " " + str(self.hora_inicial))
         return fecha_creacion
 
-    

@@ -15,3 +15,4 @@ if __name__ == "__main__":
     controlador = ControllerUser(modelo, vista,ventana_principal)
     ventana_principal.show()
     sys.exit(app.exec_())
+
