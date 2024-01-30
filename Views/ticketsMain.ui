@@ -916,7 +916,7 @@ color:  rgb(139, 132, 132);</string>
         <height>451</height>
        </rect>
       </property>
-      <widget class="QTableView" name="tableView_3">
+      <widget class="QTableView" name="tb_mis_tickets">
        <property name="geometry">
         <rect>
          <x>20</x>

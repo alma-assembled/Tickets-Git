@@ -35,12 +35,16 @@ class CrontrollerTicket:
         self.vista.btn_myTickets.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_gurdar_add.clicked.connect(self.evtguardar_ticket)
 
-        # Descripcion: crear un modelo y asignar la cabecera de las tabla
+        # Tabla dashboart
         self.tb_dashboart_modelo = QStandardItemModel()
-        self.tb_dashboart_modelo.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
-                                                            "CATEGORIA", "RESPONSABLE","PRIORIDAD", "STATUS"])
         self.vista.tb_tickets_dashboar.setModel(self.tb_dashboart_modelo)
-        self.vista.tb_tickets_dashboar.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows) 
+        self.vista.tb_tickets_dashboar.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+
+        # Tabla mis tickets
+        self.tb_mis_tikets_modelo = QStandardItemModel()
+        self.vista.tb_mis_tickets.setModel(self.tb_mis_tikets_modelo)
+        self.vista.tb_mis_tickets.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+
         # Crear un modelo para el QlistView
         self.model_ops = QStandardItemModel()
 
@@ -77,6 +81,7 @@ class CrontrollerTicket:
 
         # TABLA DASBOART
         self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.solicitante)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.solicitante)
     # EVENTOS
 
     def evtradio_button_toggled(self):
@@ -139,7 +144,8 @@ class CrontrollerTicket:
         self.vista.fr_myTickets.setVisible(fr_mytickets)
 
         self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.solicitante)
-
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.solicitante)
+    
     def fecha(self):
         """ Definir hora que se guardara """
         self.hora_inicial = datetime.datetime.now().time()
