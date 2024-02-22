@@ -45,7 +45,7 @@ class ModelFolio:
 
                 return int(r[0]) + 1
             else:
-                print("000001")
+               #print("000001")
                 return 1
         except pymysql.Error as e:
             print("Error:", e)

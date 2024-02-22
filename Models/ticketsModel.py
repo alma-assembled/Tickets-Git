@@ -94,16 +94,218 @@ class ModelTickets:
     def select_tickets_dashboard_solicitante(self, id_empleado_solicitante):
         self.c = cn.DataBase()
         try:
+            x = f"""
+                SELECT *
+                FROM (
+                    SELECT DISTINCT
+                        BT.ID_BTICKET,
+                        F.ID_BTICKETFOLIO AS FOLIO,
+                        BT.FECHA_CREACION AS FECHA,
+                        BT.ASUNTO AS TITULO,
+                        D.DEPARTAMENTO,
+                        CE.NOMBRE AS RESPONSABLE,
+                        BT.PRIORIDAD,
+                        MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE ID_BTICKET = BT.ID_BTICKET) THEN LTT.STATUS END) AS ULTIMO_STATUS
+                    FROM OPS.Base_Ticket BT
+                    INNER JOIN OPS.Base_Ticket_Folios F ON BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO
+                    INNER JOIN OPS.RH_Cat_Departamentos D ON F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO
+                    INNER JOIN OPS.Base_Tickets_Categorias CA ON BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS
+                    INNER JOIN OPS.Base_Ticket_Linea_Tiempo LTT ON BT.ID_BTICKET = LTT.ID_BTICKET 
+                    INNER JOIN OPS.Catalogo_Empleados CE ON  LTT.ID_CEMPLEADO = CE.ID_CEMPLEADO
+                    WHERE BT.ACTIVO = 1
+                    AND LTT.ACTIVO = 1 
+                    AND BT.ID_CEMPLEADO = {id_empleado_solicitante}
+                    AND LTT.STATUS NOT IN ('CERRADO', 'CANCELADO')
+                    GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
+                ) AS subquery
+                WHERE ULTIMO_STATUS IS NOT NULL
+                ORDER BY FECHA DESC;
+                """
+
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchall()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+
+    def select_tickets_dashboard_responsable(self, id_empleado_responsable):
+        self.c = cn.DataBase()
+        try:
+            x = f"""SELECT *
+                    FROM (
+                        SELECT DISTINCT
+                            BT.ID_BTICKET,
+                            F.ID_BTICKETFOLIO AS FOLIO,
+                            BT.FECHA_CREACION AS FECHA,
+                            BT.ASUNTO AS TITULO,
+                            D.DEPARTAMENTO,
+                            CE.NOMBRE AS RESPONSABLE,
+                            BT.PRIORIDAD,
+                            MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE ID_BTICKET = BT.ID_BTICKET) THEN LTT.STATUS END) AS ULTIMO_STATUS
+                        FROM OPS.Base_Ticket BT
+                        INNER JOIN OPS.Base_Ticket_Folios F ON BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO
+                        INNER JOIN OPS.RH_Cat_Departamentos D ON F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO
+                        INNER JOIN OPS.Base_Tickets_Categorias CA ON BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS
+                        INNER JOIN OPS.Catalogo_Empleados CE ON BT.ID_CEMPLEADO = CE.ID_CEMPLEADO
+                        INNER JOIN OPS.Base_Ticket_Linea_Tiempo LTT ON BT.ID_BTICKET = LTT.ID_BTICKET 
+                        WHERE BT.ACTIVO = 1
+                        AND LTT.ACTIVO = 1 
+                        AND LTT.ID_CEMPLEADO = {id_empleado_responsable}
+                        AND LTT.STATUS NOT IN ('CERRADO', 'CANCELADO')
+                        GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
+                    ) AS subquery
+                    WHERE ULTIMO_STATUS IS NOT NULL
+                    ORDER BY FECHA DESC;
+                    """
+
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchall()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+
+    def select_tickets_mis_tickets_solicitante(self, id_empleado_solicitante):
+            self.c = cn.DataBase()
+            try:
+                x = f"""
+                    SELECT *
+                    FROM (
+                       SELECT DISTINCT
+                                BT.ID_BTICKET,
+                                F.ID_BTICKETFOLIO AS FOLIO,
+                                BT.FECHA_CREACION AS FECHA,
+                                BT.ASUNTO AS TITULO,
+                                D.DEPARTAMENTO,
+                                CE.NOMBRE AS RESPONSABLE,
+                                BT.PRIORIDAD,
+                                MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE ID_BTICKET = BT.ID_BTICKET) THEN LTT.STATUS END) AS ULTIMO_STATUS
+                            FROM OPS.Base_Ticket BT
+                            INNER JOIN OPS.Base_Ticket_Folios F ON BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO
+                            INNER JOIN OPS.RH_Cat_Departamentos D ON F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO
+                            INNER JOIN OPS.Base_Tickets_Categorias CA ON BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS
+                            INNER JOIN OPS.Base_Ticket_Linea_Tiempo LTT ON BT.ID_BTICKET = LTT.ID_BTICKET 
+				    		INNER JOIN OPS.Catalogo_Empleados CE ON  LTT.ID_CEMPLEADO = CE.ID_CEMPLEADO
+                            WHERE BT.ACTIVO = 1
+                            AND LTT.ACTIVO = 1 
+                            AND BT.ID_CEMPLEADO = {id_empleado_solicitante}
+                            GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
+                    ) AS subquery
+                    WHERE ULTIMO_STATUS IS NOT NULL
+                    ORDER BY FECHA DESC;"""
+
+                self.c.cursor.execute(x)
+                self.c.connection.commit()
+                r = self.c.cursor.fetchall()
+                return r
+            except pymysql.Error as e:
+                print("Error:", e)
+            finally:
+                if hasattr(self, 'c'):
+                    self.c.cursor.close()
+
+    def select_tickets_mis_tickets_responsable(self, id_empleado_responsable):
+        self.c = cn.DataBase()
+        try:
+            x = f"""
+                SELECT DISTINCT
+                    BT.ID_BTICKET,
+                    F.ID_BTICKETFOLIO AS FOLIO,
+                    BT.FECHA_CREACION AS FECHA,
+                    BT.ASUNTO AS TITULO,
+                    D.DEPARTAMENTO,
+                    CE.NOMBRE AS RESPONSABLE,
+                    BT.PRIORIDAD,
+                    MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE ID_BTICKET = BT.ID_BTICKET) THEN LTT.STATUS END) AS ULTIMO_STATUS
+                FROM OPS.Base_Ticket BT
+                INNER JOIN OPS.Base_Ticket_Folios F ON BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO
+                INNER JOIN OPS.RH_Cat_Departamentos D ON F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO
+                INNER JOIN OPS.Base_Tickets_Categorias CA ON BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS
+                INNER JOIN OPS.Catalogo_Empleados CE ON BT.ID_CEMPLEADO = CE.ID_CEMPLEADO
+                INNER JOIN OPS.Base_Ticket_Linea_Tiempo LTT ON BT.ID_BTICKET = LTT.ID_BTICKET 
+                WHERE BT.ACTIVO = 1
+                AND LTT.ACTIVO = 1 
+                AND LTT.ID_CEMPLEADO = {id_empleado_responsable}
+                GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD;"""
+
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchall()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+
+    def select_ticket_resumen_by_id(self, id_ticket):
+        self.c = cn.DataBase()
+        try:
+            x = f"""SELECT DISTINCT
+                    BT.ID_BTICKET, 
+                    F.ID_BTICKETFOLIO AS FOLIO,
+                    LT.FECHA AS FECHA,
+                    BT.ASUNTO AS TITULO, 
+                    D.DEPARTAMENTO,
+                    (SELECT NOMBRE 
+                    FROM OPS.Catalogo_Empleados 
+                    where ID_CEMPLEADO = LT.ID_CEMPLEADO) AS RESPONSABLE,
+                    BT.PRIORIDAD, 
+                    (SELECT STATUS 
+                        FROM OPS.Base_Ticket_Linea_Tiempo LT2
+                        WHERE LT2.ID_BTICKET = BT.ID_BTICKET
+                        ORDER BY LT2.FECHA  DESC
+                        LIMIT 1 ) AS ULTIMO_STATUS,
+                    COALESCE( BT.FECHA_SOLUCION, 'ASIGNA UNA FECHA') AS FECHA_SOLUCION
+                    FROM 
+                    OPS.RH_Cat_Departamentos D,
+                    OPS.Base_Ticket_Folios F ,
+                    OPS.Base_Tickets_Categorias CA,
+                    OPS.Base_Ticket BT, 
+                    OPS.Catalogo_Empleados EM,
+                    OPS.Base_Ticket_Linea_Tiempo LT
+                    WHERE 
+                    BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO 
+                    AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO 
+                    AND BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS 
+                    AND BT.ID_CEMPLEADO=EM.ID_CEMPLEADO 
+                    AND BT.ID_BTICKET = {id_ticket}       
+                    AND BT.ID_BTICKET = LT.ID_BTICKET ORDER BY LT.FECHA DESC LIMIT 1;"""
+
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchone()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+
+    def select_ticket_detalles_by_id(self, id_ticket):
+        self.c = cn.DataBase()
+        try:
             x = f"""SELECT DISTINCT
                 BT.ID_BTICKET, 
                 F.ID_BTICKETFOLIO AS FOLIO,
-                BT.FECHA_CREACION AS FECHA,
+                LT.FECHA AS FECHA,
                  BT.ASUNTO AS TITULO, 
+                 BT.DESCRIPCION ,
                  D.DEPARTAMENTO,
+                 CA.DESCRIPCION AS CATEGORIA,
                   (SELECT NOMBRE 
                  FROM OPS.Catalogo_Empleados 
                  where ID_CEMPLEADO = LT.ID_CEMPLEADO) AS RESPONSABLE,
+                 EM.NOMBRE AS AUTOR,
                  BT.PRIORIDAD, 
+                COALESCE( BT.FECHA_SOLUCION, 'ASIGNA UNA FECHA') AS FECHA_SOLUCION,
                 (SELECT STATUS 
                      FROM OPS.Base_Ticket_Linea_Tiempo LT2
                      WHERE LT2.ID_BTICKET = BT.ID_BTICKET
@@ -120,19 +322,13 @@ class ModelTickets:
                 BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO 
                 AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO 
                 AND BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS 
-                AND BT.ID_CEMPLEADO={id_empleado_solicitante}
                 AND BT.ID_CEMPLEADO=EM.ID_CEMPLEADO 
-                AND (SELECT STATUS 
-                         FROM OPS.Base_Ticket_Linea_Tiempo LT2
-                         WHERE LT2.ID_BTICKET = BT.ID_BTICKET
-                         ORDER BY LT2.FECHA DESC
-                         LIMIT 1) NOT IN ('CERRADO', 'CANCELADO')
-                AND BT.ID_BTICKET = LT.ID_BTICKET 
-                ORDER BY BT.FECHA_CREACION DESC LIMIT 30;"""
+                AND BT.ID_BTICKET = {id_ticket}         
+                AND BT.ID_BTICKET = LT.ID_BTICKET ORDER BY LT.FECHA DESC  LIMIT 1;"""
 
             self.c.cursor.execute(x)
             self.c.connection.commit()
-            r = self.c.cursor.fetchall()
+            r = self.c.cursor.fetchone()
             return r
         except pymysql.Error as e:
             print("Error:", e)
@@ -140,128 +336,117 @@ class ModelTickets:
             if hasattr(self, 'c'):
                 self.c.cursor.close()
 
-    def select_tickets_dashboard_responsable(self, id_empleado_responsable):
-        self.c = cn.DataBase()
-        try:
-            x = f"""SELECT  DISTINCT
-                BT.ID_BTICKET, 
-                F.ID_BTICKETFOLIO AS FOLIO,
-                BT.FECHA_CREACION AS FECHA,
-                 BT.ASUNTO AS TITULO, 
-                 D.DEPARTAMENTO,
-                 EM.NOMBRE AS AUTOR,
-                 BT.PRIORIDAD,
-                (SELECT STATUS 
-                     FROM OPS.Base_Ticket_Linea_Tiempo LT2
-                     WHERE LT2.ID_BTICKET = BT.ID_BTICKET
-                     ORDER BY LT2.FECHA DESC
-                     LIMIT 1) AS ULTIMO_STATUS
-                FROM 
-                OPS.RH_Cat_Departamentos D,
-                 OPS.Base_Ticket_Folios F ,
-                 OPS.Base_Tickets_Categorias CA,
-                 OPS.Base_Ticket BT, 
-                 OPS.Catalogo_Empleados EM,
-                 OPS.Base_Ticket_Linea_Tiempo LT
-                WHERE 
-                BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO 
-                    AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO 
-                    AND BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS 
-                    AND BT.ID_CEMPLEADO = EM.ID_CEMPLEADO
-                    AND BT.ID_BTICKET = LT.ID_BTICKET
-                    AND LT.ID_CEMPLEADO = {id_empleado_responsable}
-                    AND (SELECT STATUS 
-                         FROM OPS.Base_Ticket_Linea_Tiempo LT2
-                         WHERE LT2.ID_BTICKET = BT.ID_BTICKET
-                         ORDER BY LT2.FECHA DESC
-                         LIMIT 1) NOT IN ('CERRADO', 'CANCELADO')
-                    ORDER BY BT.FECHA_CREACION DESC LIMIT 30;"""
-
-            self.c.cursor.execute(x)
-            self.c.connection.commit()
-            r = self.c.cursor.fetchall()
-            return r
-        except pymysql.Error as e:
-            print("Error:", e)
-        finally:
-            if hasattr(self, 'c'):
-                self.c.cursor.close()
-
-    def select_tickets_mis_tickets_solicitante(self, id_empleado_solicitante):
+    def asignarFechaSolucion(self, fecha, id_ticket):
             self.c = cn.DataBase()
+            x=f'''UPDATE `OPS`.`Base_Ticket` SET `FECHA_SOLUCION` = '{fecha}' WHERE (`ID_BTICKET` = '{id_ticket}');'''
             try:
-                x = f"""SELECT DISTINCT
-                    BT.ID_BTICKET, 
-                    F.ID_BTICKETFOLIO AS FOLIO,
-                    BT.FECHA_CREACION AS FECHA,
-                     BT.ASUNTO AS TITULO, 
-                     D.DEPARTAMENTO,
-                      (SELECT NOMBRE 
-                     FROM OPS.Catalogo_Empleados 
-                     where ID_CEMPLEADO = LT.ID_CEMPLEADO) AS RESPONSABLE,
-                     BT.PRIORIDAD, 
-                    (SELECT STATUS 
-                         FROM OPS.Base_Ticket_Linea_Tiempo LT2
-                         WHERE LT2.ID_BTICKET = BT.ID_BTICKET
-                         ORDER BY LT2.FECHA  DESC
-                         LIMIT 1 ) AS ULTIMO_STATUS
-                    FROM 
-                    OPS.RH_Cat_Departamentos D,
-                     OPS.Base_Ticket_Folios F ,
-                     OPS.Base_Tickets_Categorias CA,
-                     OPS.Base_Ticket BT, 
-                     OPS.Catalogo_Empleados EM,
-                     OPS.Base_Ticket_Linea_Tiempo LT
-                    WHERE 
-                    BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO 
-                    AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO 
-                    AND BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS 
-                    AND BT.ID_CEMPLEADO={id_empleado_solicitante}
-                    AND BT.ID_CEMPLEADO=EM.ID_CEMPLEADO 
-                    AND BT.ID_BTICKET = LT.ID_BTICKET 
-                    ORDER BY BT.FECHA_CREACION DESC LIMIT 30;"""
-
                 self.c.cursor.execute(x)
                 self.c.connection.commit()
-                r = self.c.cursor.fetchall()
-                return r
-            except pymysql.Error as e:
-                print("Error:", e)
+            except pymysql.Error as e: 
+                print("Error: ", e)
             finally:
                 if hasattr(self, 'c'):
                     self.c.cursor.close()
 
-    def select_tickets_mis_tickets_responsable(self, id_empleado_responsable):
+    def count_estado_solicitante(self, id_empleado_solicitante, estado):
         self.c = cn.DataBase()
         try:
-            x = f"""SELECT  DISTINCT
-                BT.ID_BTICKET, 
-                F.ID_BTICKETFOLIO AS FOLIO,
-                BT.FECHA_CREACION AS FECHA,
-                 BT.ASUNTO AS TITULO, 
-                 D.DEPARTAMENTO,
-                 EM.NOMBRE AS AUTOR,
-                 BT.PRIORIDAD,
-                (SELECT STATUS 
-                     FROM OPS.Base_Ticket_Linea_Tiempo LT2
-                     WHERE LT2.ID_BTICKET = BT.ID_BTICKET
-                     ORDER BY LT2.FECHA DESC
-                     LIMIT 1) AS ULTIMO_STATUS
-                FROM 
-                OPS.RH_Cat_Departamentos D,
-                 OPS.Base_Ticket_Folios F ,
-                 OPS.Base_Tickets_Categorias CA,
-                 OPS.Base_Ticket BT, 
-                 OPS.Catalogo_Empleados EM,
-                 OPS.Base_Ticket_Linea_Tiempo LT
-                WHERE 
-                BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO 
-                    AND F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO 
-                    AND BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS 
-                    AND BT.ID_CEMPLEADO = EM.ID_CEMPLEADO
-                    AND BT.ID_BTICKET = LT.ID_BTICKET
-                    AND LT.ID_CEMPLEADO = {id_empleado_responsable}
-                    ORDER BY BT.FECHA_CREACION DESC LIMIT 30;"""
+            x = f"""SELECT COUNT(*) AS total
+                    FROM (
+                        SELECT
+                            LTT.ID_BTICKET,
+                            MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE BT.ID_BTICKET = ID_BTICKET)THEN LTT.STATUS END) AS ULTIMO_STATUS
+                        FROM OPS.Base_Ticket_Linea_Tiempo LTT ,
+                        OPS.Base_Ticket BT
+                        WHERE
+                            LTT.ACTIVO = 1 
+                            AND BT.ACTIVO = TRUE
+                            AND BT.ID_BTICKET = LTT.ID_BTICKET
+                            AND BT.ID_CEMPLEADO = {id_empleado_solicitante}
+                            AND LTT.STATUS = '{estado}'
+                        GROUP BY LTT.ID_BTICKET
+                    ) AS subquery 	
+                    WHERE ULTIMO_STATUS IS NOT NULL;"""
+
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchone()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+     
+    def count_estado_responsable(self, id_empleado_responsable, estado):
+        self.c = cn.DataBase()
+        try:
+            x = f"""SELECT COUNT(*) AS total
+                    FROM (
+                        SELECT
+                            LTT.ID_BTICKET,
+                            MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE ID_BTICKET = LTT.ID_BTICKET)THEN LTT.STATUS END) AS ULTIMO_STATUS
+                        FROM OPS.Base_Ticket_Linea_Tiempo LTT 
+                        WHERE
+                            LTT.ACTIVO = 1 
+                            AND LTT.ID_CEMPLEADO = {id_empleado_responsable}
+                            AND LTT.STATUS = '{estado}' 
+                        GROUP BY LTT.ID_BTICKET
+                    ) AS subquery
+                    WHERE ULTIMO_STATUS IS NOT NULL;"""
+
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchone()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+     
+
+def select_tickets_dashboard_solicitante_filtro(self, id_empleado_solicitante, status, id_empleado_responsable, id_departamento,id_ticket_categoria ):
+        self.c = cn.DataBase()
+        try:
+            x = f"""SELECT *
+                FROM (
+                    SELECT DISTINCT
+                        BT.ID_BTICKET,
+                        F.ID_BTICKETFOLIO AS FOLIO,
+                        BT.FECHA_CREACION AS FECHA,
+                        BT.ASUNTO AS TITULO,
+                        D.DEPARTAMENTO,
+                        CE.NOMBRE AS RESPONSABLE,
+                        BT.PRIORIDAD,
+                        MAX(CASE WHEN LTT.FECHA = (SELECT MAX(FECHA) FROM Base_Ticket_Linea_Tiempo WHERE ID_BTICKET = BT.ID_BTICKET) THEN LTT.STATUS END) AS ULTIMO_STATUS
+                    FROM OPS.Base_Ticket BT
+                    INNER JOIN OPS.Base_Ticket_Folios F ON BT.ID_BTICKETFOLIO = F.ID_BTICKETFOLIO
+                    INNER JOIN OPS.RH_Cat_Departamentos D ON F.ID_RHCDEPARTAMENTO = D.ID_RHCDEPARTAMENTO
+                    INNER JOIN OPS.Base_Tickets_Categorias CA ON BT.ID_BTICKETCATEGORIAS = CA.ID_BTICKETCATEGORIAS
+                    INNER JOIN OPS.Base_Ticket_Linea_Tiempo LTT ON BT.ID_BTICKET = LTT.ID_BTICKET 
+                    INNER JOIN OPS.Catalogo_Empleados CE ON  LTT.ID_CEMPLEADO = CE.ID_CEMPLEADO
+                    WHERE BT.ACTIVO = 1
+                    AND LTT.ACTIVO = 1 
+                    AND BT.ID_CEMPLEADO = {id_empleado_solicitante}
+                    """
+
+            if status != "":
+                x += f" AND LTT.STATUS = '{status}' "
+            
+            if id_empleado_responsable != "":
+                x += f"AND LTT.ID_CEMPLEADO = {id_empleado_responsable} "
+
+            if id_departamento != 0 : 
+                x += f" AND D.ID_RHCDEPARTAMENTO = {id_empleado_responsable} "
+            
+            if id_ticket_categoria != 0:
+                x += f" AND D.ID_RHCDEPARTAMENTO = {id_empleado_responsable} "
+
+            x += """ GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
+                    ) AS subquery
+                    WHERE ULTIMO_STATUS IS NOT NULL
+                    ORDER BY FECHA DESC; """
 
             self.c.cursor.execute(x)
             self.c.connection.commit()
@@ -272,3 +457,4 @@ class ModelTickets:
         finally:
             if hasattr(self, 'c'):
                 self.c.cursor.close()
+                

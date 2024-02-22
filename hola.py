@@ -1,4 +1,4 @@
-import sys
+'''import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QTextEdit, QLineEdit, QPushButton
 
 class ChatApp(QWidget):
@@ -43,7 +43,9 @@ if __name__ == '__main__':
     chat_app = ChatApp()
     sys.exit(app.exec_())
 
-'''from uuid import uuid4
+    
+    
+from uuid import uuid4
 from nicegui import ui
 
 messages = []
@@ -85,3 +87,65 @@ n = len(palabras)
 
 print("Número de palabras:", n)
 '''
+
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QPushButton
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QStyledItemDelegate
+from PyQt5.QtGui import QColor
+
+class ColorDelegate(QStyledItemDelegate):
+    def initStyleOption(self, option, index):
+        super().initStyleOption(option, index)
+        value = index.data(Qt.DisplayRole)  # Obtener el valor de la celda
+
+
+        # Cambiar el color de fondo basado en el valor
+        if value == "ASIGNADO":
+            option.backgroundBrush = QColor("#D8863B")
+            #option. =  painter.setPen(QColor(Qt.white))
+        elif value == "PROCESO":
+            option.backgroundBrush = QColor("#063456")
+        elif value == "TERMINADO":
+            option.backgroundBrush = QColor("#2B8544")
+        elif value == "CERRADO":
+            option.backgroundBrush = QColor("#3B96D8")
+        elif value == "CANCELADO":
+            option.backgroundBrush = QColor("#CE2323")
+
+class MyWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        
+        self.setWindowTitle("Ejemplo de Botón en Tabla con ColorDelegate")
+        self.setGeometry(100, 100, 600, 400)
+        
+        # Crear la tabla
+        self.tableWidget = QTableWidget(self)
+        self.tableWidget.setGeometry(50, 50, 500, 300)
+        
+        # Configurar la tabla
+        self.tableWidget.setColumnCount(4)
+        self.tableWidget.setRowCount(3)
+        
+        # Llenar la tabla con datos de ejemplo
+        for i in range(3):
+            for j in range(4):
+                self.tableWidget.setItem(i, j, QTableWidgetItem(f"Item {i},{j}"))
+        
+        # Agregar un botón a la última columna de cada fila
+        for i in range(3):
+            button = QPushButton("Botón")
+            button.clicked.connect(self.on_button_clicked)
+            self.tableWidget.setCellWidget(i, 3, button)
+        
+        # Asignar el delegado personalizado a la columna de STATUS
+        delegate = ColorDelegate()
+        self.tableWidget.setItemDelegateForColumn(6, delegate)
+        
+    def on_button_clicked(self):
+        print("¡Botón clickeado!")
+
+app = QApplication([])
+window = MyWindow()
+window.show()
+app.exec_()

@@ -1,4 +1,3 @@
-from Models.global_variables import BdUsurio
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QDate
 import datetime
@@ -6,7 +5,8 @@ from Controllers.comunController import ControllerComun
 from Models.ticketsModel import ModelTickets
 from Models.folioModel import ModelFolio
 from PyQt5.QtGui import QStandardItemModel
-
+from Models.global_variables import Datos, BdUsurio
+from PyQt5.QtCore import QTimer
 
 class CrontrollerTicket:
     def __init__(self, vista, ventana):
@@ -29,11 +29,13 @@ class CrontrollerTicket:
         # EVENTOS
         self.vista.rb_solicitante.clicked.connect(self.evtradio_button_toggled)
         self.vista.rb_responsable.clicked.connect(self.evtradio_button_toggled)
-        self.vista.btn_addTicket.clicked.connect(lambda: self.cambiar_pagina(3))
+        self.vista.btn_addTicket.clicked.connect(self.agregar_ticket_nuevo)
         self.vista.btn_dashboard.clicked.connect(lambda: self.cambiar_pagina(0))
         self.vista.btn_ticket.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_myTickets.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_gurdar_add.clicked.connect(self.evtguardar_ticket)
+        self.vista.btn_allTickets_d.clicked.connect(self.evtradio_button_toggled)
+        self.vista.btn_buscar_d.clicked.connect()
 
         # Tabla dashboart
         self.tb_dashboart_modelo = QStandardItemModel()
@@ -51,6 +53,13 @@ class CrontrollerTicket:
         # INICIAL
         self.llenar_info_inicial()
         self.modo_solicitante()
+        self.dashboard_contontar()
+
+        # Configurar un temporizador para verificar el texto del QLabel periódicamente
+        #self.timer = QTimer()
+        #self.timer.timeout.connect(self.actualizar_tablas)
+        #self.timer.start(100)  # Verificar cada 100 milisegundos
+
 
     def llenar_info_inicial(self):
         """
@@ -80,10 +89,15 @@ class CrontrollerTicket:
         self.controllerComon.llenar_cbprioridad(self.vista.cb_prioridad_add)
 
         # TABLA DASBOART
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.solicitante)
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.solicitante)
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar, self.vista)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+    
+    def actualizar_tablas(self):
+        if Datos.cambio_estado:
+            self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar, self.vista)
+            self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista)
+            Datos.cambio_estado = False
     # EVENTOS
-
     def evtradio_button_toggled(self):
         """
         Descripcion:
@@ -95,6 +109,7 @@ class CrontrollerTicket:
             self.modo_responsable()
         elif self.vista.rb_solicitante.isChecked():
             self.modo_solicitante()
+        self.dashboard_contontar()
 
     def evtguardar_ticket(self):
         id_departamento = self.vista.cb_departamento_add.currentData()
@@ -116,20 +131,74 @@ class CrontrollerTicket:
         id_ticket = self.modelo_ticket.guardar_ticket(asunto, descripcion, prioridad, fecha, id_categoria,
                                                       id_departamento, BdUsurio.idEmpleado, id_folio)
         self.modelo_ticket.guardar_lineatiempo(status, fecha, id_ticket, id_empleado)
+        
+        self.campos_ticket_despues_creacrear(folio_generado,fecha)
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,   self.vista)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+        
         self.mensaje.setText("Ticket " + str(folio_generado) + " generado correctamente")
         self.mensaje.exec_()
         return
+
+    def campos_ticket_despues_creacrear(self, ticket, fecha):
+        self.vista.lbl_n_ticket.setText(ticket)
+        self.vista.lbl_fecha_creacion.setText(fecha)
+        self.vista.lbl_estado.setText('ASIGNADO')
+        self.vista.lbl_fecha_creacion.setVisible(True)
+        self.vista.lb_fechaCreacion.setVisible(True)
+        self.vista.cb_departamento_add.setEnabled(False)
+        self.vista.cb_prioridad_add.setEnabled(False)
+        self.vista.cb_categoria_add.setEnabled(False)
+        self.vista.ptext_asunto_add.setEnabled(False)
+        self.vista.cb_empleado_add.setEnabled(False)
+        self.vista.ptext_descripcion_add.setEnabled(False)
+        self.vista.btn_gurdar_add.setVisible(False)
 
     def cambiar_pagina(self, index):
         # Cambiar a la página indicada
         self.vista.multiWidget.setCurrentIndex(index)
 
+    def agregar_ticket_nuevo(self):
+        self.cambiar_pagina(3)
+        self.vista.lbl_nombres.setText("")
+        self.vista.cb_departamento_add.setCurrentText("")
+        self.vista.cb_prioridad_add.setCurrentText("")
+        self.vista.cb_categoria_add.setCurrentText("")
+        self.vista.lbl_fecha_2.setText("")
+        self.vista.ptext_asunto_add.setPlainText("")
+        self.vista.ptext_descripcion_add.setPlainText("")
+        self.vista.cb_empleado_add.setCurrentText("")
+        self.vista.lbl_n_ticket.setText("")
+        self.vista.lbl_fecha_creacion.setText("")
+        self.vista.lbl_estado.setText("")
+        self.vista.cb_departamento_add.setEnabled(True)
+        self.vista.cb_prioridad_add.setEnabled(True)
+        self.vista.cb_categoria_add.setEnabled(True)
+        self.vista.ptext_asunto_add.setEnabled(True)
+        self.vista.cb_empleado_add.setEnabled(True)
+        self.vista.ptext_descripcion_add.setEnabled(True)
+        self.vista.btn_gurdar_add.setVisible(True)
+
+        nombre_completo = BdUsurio.nombre.split()
+        nombres = " ".join([str(nombre_completo[0]), str(nombre_completo[1])])
+        self.vista.lbl_nombres.setText(nombres)
+
+        #invisible
+        self.vista.lb_fechaSolucion.setVisible(False)
+        self.vista.lbl_fecha_2.setVisible(False)
+        self.vista.btn_calendario_2.setVisible(False)
+        self.vista.btn_guardar_asg_6.setVisible(False)
+        self.vista.lbl_fecha_creacion.setVisible(False)
+        self.vista.lb_fechaCreacion.setVisible(False)
+
     def modo_solicitante(self):
         self.solicitante = True
+        Datos.rol ='SOLICITANTE'
         self.setwidgetsvisibility(True, True, True, True, True, True, False, False)
-
+        
     def modo_responsable(self):
         self.solicitante = False
+        Datos.rol ='RESPONSABLE'
         self.setwidgetsvisibility(True, True, False, False, True, True, False, False)
 
     def setwidgetsvisibility(self, btn_dashboard, fr_dashboard, btn_addticket, fr_addticket, btn_ticket, fr_ticket,
@@ -143,8 +212,8 @@ class CrontrollerTicket:
         self.vista.btn_myTickets.setVisible(btn_mytickets)
         self.vista.fr_myTickets.setVisible(fr_mytickets)
 
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.solicitante)
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.solicitante)
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.vista )
     
     def fecha(self):
         """ Definir hora que se guardara """
@@ -154,3 +223,17 @@ class CrontrollerTicket:
         fecha_creacion = (str(fecha_text) + " " + str(self.hora_inicial))
         return fecha_creacion
 
+    def dashboard_contontar(self):
+        if Datos.rol == "SOLICITANTE":
+            self.vista.lb_contador_asignados.setText(str(self.modelo_ticket.count_estado_solicitante(BdUsurio.idEmpleado, "ASIGNADO")[0]))
+            self.vista.lb_contadorproceso.setText(str(self.modelo_ticket.count_estado_solicitante(BdUsurio.idEmpleado, 'PROCESO')[0]))
+            self.vista.lb_contador_terminados.setText(str(self.modelo_ticket.count_estado_solicitante(BdUsurio.idEmpleado, 'TERMINADO')[0]))
+            self.vista.lb_contador_cerrados.setText(str(self.modelo_ticket.count_estado_solicitante(BdUsurio.idEmpleado, 'CERRADO')[0]))
+            self.vista.lb_contadorCancelados.setText(str(self.modelo_ticket.count_estado_solicitante(BdUsurio.idEmpleado, 'CANCELADO')[0]))
+        elif Datos.rol == "RESPONSABLE":
+            pass
+            self.vista.lb_contador_asignados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'ASIGNADO')[0]))
+            self.vista.lb_contadorproceso.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'PROCESO')[0]))
+            self.vista.lb_contador_terminados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'TERMINADO')[0]))
+            self.vista.lb_contador_cerrados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'CERRADO')[0]))
+            self.vista.lb_contadorCancelados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'CANCELADO')[0]))
