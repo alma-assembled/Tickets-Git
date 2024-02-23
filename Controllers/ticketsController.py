@@ -35,7 +35,7 @@ class CrontrollerTicket:
         self.vista.btn_myTickets.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_gurdar_add.clicked.connect(self.evtguardar_ticket)
         self.vista.btn_allTickets_d.clicked.connect(self.evtradio_button_toggled)
-        self.vista.btn_buscar_d.clicked.connect()
+        #self.vista.btn_buscar_d.clicked.connect()
 
         # Tabla dashboart
         self.tb_dashboart_modelo = QStandardItemModel()
@@ -56,9 +56,9 @@ class CrontrollerTicket:
         self.dashboard_contontar()
 
         # Configurar un temporizador para verificar el texto del QLabel periódicamente
-        #self.timer = QTimer()
-        #self.timer.timeout.connect(self.actualizar_tablas)
-        #self.timer.start(100)  # Verificar cada 100 milisegundos
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.actualizar_tablas)
+        self.timer.start(1000)  # Verificar cada 100 milisegundos
 
 
     def llenar_info_inicial(self):
@@ -237,3 +237,9 @@ class CrontrollerTicket:
             self.vista.lb_contador_terminados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'TERMINADO')[0]))
             self.vista.lb_contador_cerrados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'CERRADO')[0]))
             self.vista.lb_contadorCancelados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'CANCELADO')[0]))
+
+    def filtrar_ticketsdashboard(self):
+        pass
+
+    def filtar_mis_ticket(self):
+        pass

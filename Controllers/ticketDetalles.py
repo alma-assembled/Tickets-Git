@@ -103,7 +103,7 @@ class ticketsDetalles():
             self.mensaje.exec_()
             return
         self.modelo_ticket.guardar_lineatiempo(estado_sigiente,self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
-        self.ticket_resumen(Datos.id_ticket)
+        self.ticket_detalles(Datos.id_ticket)
         self.mensaje.setText("TICKET EN ESTADO: " + estado_sigiente)
         self.mensaje.exec_()
     

@@ -35,12 +35,18 @@ class ticketsResumen():
 
         if Datos.rol == 'RESPONSABLE':
             self.vista.btn_cancelarTicket.setVisible(False)
-            self.vista.btn_guardar_asg_4.setVisible(False)
-            self.vista.btn_calendario.setVisible(False)
+            if estado_actual == 'ASIGNADO':
+                self.vista.btn_guardar_asg_4.setVisible(True)
+                self.vista.btn_calendario.setVisible(True)
+            else:
+                self.vista.btn_guardar_asg_4.setVisible(False)
+                self.vista.btn_calendario.setVisible(False)
+
             if  estado_actual == 'TERMINADO' or estado_actual ==  'CERRADO' or estado_actual == 'CANCELADO':
                 self.vista.btn_sigEstado.setVisible(False)
-            else:
+            elif estado_actual == 'ASIGNADO' or estado_actual == 'PROCESO' :
                 self.vista.btn_sigEstado.setVisible(True)
+
 
         elif Datos.rol == 'SOLICITANTE':
             if estado_actual == 'ASIGNADO' or estado_actual == 'PROCESO': 
@@ -49,6 +55,10 @@ class ticketsResumen():
             elif estado_actual == 'TERMINADO':
                 self.vista.btn_sigEstado.setVisible(True)
                 self.vista.btn_cancelarTicket.setVisible(False)
+            elif estado_actual == 'CERRADO':
+                self.vista.btn_sigEstado.setVisible(False)
+                self.vista.btn_cancelarTicket.setVisible(False)
+
             self.vista.btn_guardar_asg_4.setVisible(False)
             self.vista.btn_calendario.setVisible(False)
             self.vista.btn_reasignar.setVisible(False)
@@ -94,7 +104,7 @@ class ticketsResumen():
             #prueba
             #self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,   self.vista)
             #self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
-            Datos.cambio_estado = False
+            Datos.cambio_estado = True
             self.mensaje.setText("FECHA SOLUCION ASIGNADA")
             self.mensaje.exec_()
         else:
@@ -139,11 +149,12 @@ class ticketsResumen():
             self.mensaje.setText("INGRESA FECHA DE SOLUCION: ")
             self.mensaje.exec_()
             return
+        
         self.modelo_ticket.guardar_lineatiempo(estado_sigiente,self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
         self.ticket_resumen(Datos.id_ticket)
         #self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
         #self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
-        Datos.cambio_estado = False
+        Datos.cambio_estado = True
         self.mensaje.setText("TICKET EN ESTADO: " + str(estado_sigiente))
         self.mensaje.exec_()
     
@@ -155,7 +166,7 @@ class ticketsResumen():
             #prueba
             #self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,   self.vista)
             #self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
-            Datos.cambio_estado = False
+            Datos.cambio_estado = True
             self.mensaje.setText("TICKET REACIGNADO A : " + str(self.vista.cb_empleado_asg.currentText()))
             self.mensaje.exec_()
     
