@@ -60,7 +60,7 @@ class ControllerComun:
         combo_box.addItem("-------", 0)
         combo_box.addItem("ASIGNADO", "ASIGNADO")
         combo_box.addItem("EN PROCESO", "PROCESO")
-        combo_box.addItem("TERMINADO", "TEMINADO")
+        combo_box.addItem("TERMINADO", "TERMINADO")
         combo_box.addItem("CERRADO", "CERRADO")
         combo_box.addItem("CANCELDO", "CANCELADO")
 
@@ -84,11 +84,34 @@ class ControllerComun:
         if Datos.rol == 'SOLICITANTE':
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "RESPONSABLE", "PRIORIDAD", "STATUS","VER"])
-            tickets_all = model_ticket.select_tickets_dashboard_solicitante(BdUsurio.idEmpleado)
+            if Datos.filtro == True:
+                fecha = vista.lbl_fecha_4.text()
+                codigo = vista.text_buscar_d.text()
+                status = vista.cb_status_d.currentData()
+                id_responsable = vista.cb_empleado_d.currentData()
+                id_departamento = vista.cb_departamento_d.currentData()
+                id_ticket_categoria = vista.cb_categoria_d.currentData()
+                id_solicitante = BdUsurio.idEmpleado
+                tickets_all = model_ticket.select_tickets_dashboard_solicitante_filtro(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria, fecha)
+                Datos.filtro = False
+            else:
+                tickets_all = model_ticket.select_tickets_dashboard_solicitante(BdUsurio.idEmpleado)
+
         elif  Datos.rol == 'RESPONSABLE':
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "AUTOR", "PRIORIDAD", "STATUS", "VER"])
-            tickets_all = model_ticket.select_tickets_dashboard_responsable(BdUsurio.idEmpleado)
+            if Datos.filtro == True:
+                fecha = vista.lbl_fecha_4.text()
+                codigo = vista.text_buscar_d.text()
+                status = vista.cb_status_d.currentData()
+                id_solicitante = vista.cb_empleado_d.currentData()
+                id_departamento = vista.cb_departamento_d.currentData()
+                id_ticket_categoria = vista.cb_categoria_d.currentData()
+                id_responsable = BdUsurio.idEmpleado
+                tickets_all = model_ticket.select_tickets_dashboard_responsable_filtro(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria,fecha)
+                Datos.filtro = False
+            else:
+                tickets_all = model_ticket.select_tickets_dashboard_responsable(BdUsurio.idEmpleado)
 
         # Iterar sobre los tickets y agregarlos al modelo de datos
         for  row, ticket in enumerate(tickets_all):
@@ -141,11 +164,33 @@ class ControllerComun:
         if Datos.rol == 'SOLICITANTE':
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "RESPONSABLE", "PRIORIDAD", "STATUS","VER"])
-            tickets_all = model_ticket.select_tickets_mis_tickets_solicitante(BdUsurio.idEmpleado)
+            if Datos.filtro == True:
+                fecha = vista.lbl_fecha_3.text()
+                codigo = vista.text_buscar_t.text()
+                status = vista.cb_status_t.currentData()
+                id_responsable = vista.cb_empleado_t.currentData()
+                id_departamento = vista.cb_departamento_t.currentData()
+                id_ticket_categoria = vista.cb_categoria_t.currentData()
+                id_solicitante = BdUsurio.idEmpleado
+                tickets_all = model_ticket.filtro_select_tickets_mis_tickets_solicitante(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria,fecha)
+                Datos.filtro = False
+            else:
+                tickets_all = model_ticket.select_tickets_mis_tickets_solicitante(BdUsurio.idEmpleado)
         elif  Datos.rol == 'RESPONSABLE':
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "AUTOR", "PRIORIDAD", "STATUS","VER"])
-            tickets_all = model_ticket.select_tickets_mis_tickets_responsable(BdUsurio.idEmpleado)
+            if Datos.filtro == True:
+                fecha = vista.lbl_fecha_3.text()
+                codigo = vista.text_buscar_t.text()
+                status = vista.cb_status_t.currentData()
+                id_solicitante = vista.cb_empleado_t.currentData()
+                id_departamento = vista.cb_departamento_t.currentData()
+                id_ticket_categoria = vista.cb_categoria_t.currentData()
+                id_responsable = BdUsurio.idEmpleado
+                tickets_all = model_ticket.filtro_select_tickets_mis_tickets_reponsable(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria, fecha)
+                Datos.filtro = False
+            else:
+                tickets_all = model_ticket.select_tickets_mis_tickets_responsable(BdUsurio.idEmpleado)
 
         # Iterar sobre los tickets y agregarlos al modelo de datos
         for row, ticket in enumerate(tickets_all):
@@ -195,7 +240,7 @@ class ControllerComun:
         for index in sorted(selected_indexes, reverse=True):
             # Obtener el identificador único de la fila seleccionada
             id_unique = md_tabla.data(index, Qt.UserRole)
-            print("Id:", id_unique)
+            #print("Id:", id_unique)
             self.cambiar_pagina(4, vista)
             ticket_resumen.ticket_resumen(id_unique)
             
@@ -206,7 +251,7 @@ class ControllerComun:
         for index in sorted(selected_indexes, reverse=True):
             # Obtener el identificador único de la fila seleccionada
             id_unique = md_tabla.data(index, Qt.UserRole)
-            print("Id:", id_unique)
+            #print("Id:", id_unique)
             self.cambiar_pagina(4, vista)
             ticket_resumen.ticket_resumen(id_unique)
 
@@ -214,7 +259,6 @@ class ControllerComun:
         # Cambiar a la página indicada
         vista.multiWidget.setCurrentIndex(index)
         
-
 class ColorDelegate(QStyledItemDelegate):
     def initStyleOption(self, option, index):
         super().initStyleOption(option, index)

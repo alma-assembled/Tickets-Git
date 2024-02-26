@@ -17,3 +17,5 @@ class Datos():
    nuevoTicket = False
 
    cambio_estado = False
+
+   filtro = False

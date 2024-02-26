@@ -21,6 +21,7 @@ class ticketsResumen():
         self.vista.btn_sigEstado.clicked.connect(self.cambiar_estado)
         self.vista.btn_reasignar.clicked.connect(self.reasignar_ticket)
         self.vista.btn_verDetalles.clicked.connect(lambda: self.cambiar_pagina(3,self.vista))
+        self.vista.btn_cancelarTicket.clicked.connect(self.cerrar_ticket)
 
         # INICIALIZAR MENSAJES
         self.mensaje = QtWidgets.QMessageBox()
@@ -44,6 +45,7 @@ class ticketsResumen():
 
             if  estado_actual == 'TERMINADO' or estado_actual ==  'CERRADO' or estado_actual == 'CANCELADO':
                 self.vista.btn_sigEstado.setVisible(False)
+                self.vista.btn_cancelarTicket.setVisible(False)
             elif estado_actual == 'ASIGNADO' or estado_actual == 'PROCESO' :
                 self.vista.btn_sigEstado.setVisible(True)
 
@@ -55,7 +57,7 @@ class ticketsResumen():
             elif estado_actual == 'TERMINADO':
                 self.vista.btn_sigEstado.setVisible(True)
                 self.vista.btn_cancelarTicket.setVisible(False)
-            elif estado_actual == 'CERRADO':
+            elif estado_actual == 'CERRADO' or estado_actual == 'CANCELADO':
                 self.vista.btn_sigEstado.setVisible(False)
                 self.vista.btn_cancelarTicket.setVisible(False)
 
@@ -101,9 +103,6 @@ class ticketsResumen():
             self.modelo_ticket.guardar_lineatiempo('PROCESO', fecha_hoy, Datos.id_ticket, BdUsurio.idEmpleado)
             self.ticket_resumen(Datos.id_ticket)
             self.ticket_enProceso_campos()
-            #prueba
-            #self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,   self.vista)
-            #self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
             Datos.cambio_estado = True
             self.mensaje.setText("FECHA SOLUCION ASIGNADA")
             self.mensaje.exec_()
@@ -134,10 +133,10 @@ class ticketsResumen():
         self.vista.lbl_nombre_15.setText("ASIGNAR*")
 
     def devuelve_estado_sigiente(self, estadoActual):
-        if Datos.rol == 'SOLICITANTE':
-            return 'CERRAR'
-        elif Datos.rol == 'RESPONSABLE':
-            estados = ['ASIGNADO', 'PROCESO','TERMINADO']
+        #if Datos.rol == 'SOLICITANTE':
+        #    return 'CERRADO'
+        #elif Datos.rol == 'RESPONSABLE':
+            estados = ['ASIGNADO', 'PROCESO','TERMINADO', 'CERRADO', 'CANCELADO']
             indice = estados.index(estadoActual)
             siguiente_indice = (indice + 1) % len(estados)
             return estados[siguiente_indice]
@@ -152,10 +151,16 @@ class ticketsResumen():
         
         self.modelo_ticket.guardar_lineatiempo(estado_sigiente,self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
         self.ticket_resumen(Datos.id_ticket)
-        #self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
-        #self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
         Datos.cambio_estado = True
         self.mensaje.setText("TICKET EN ESTADO: " + str(estado_sigiente))
+        self.mensaje.exec_()
+    
+    def cerrar_ticket(self):     
+        self.modelo_ticket.guardar_lineatiempo('CANCELADO',self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
+        self.ticket_resumen(Datos.id_ticket)
+        Datos.cambio_estado = True
+        self.vista.btn_cancelarTicket.setVisible(False)
+        self.mensaje.setText("TICKET EN ESTADO: CANCELADO")
         self.mensaje.exec_()
     
     def reasignar_ticket(self):
@@ -163,9 +168,6 @@ class ticketsResumen():
             id_asignar = self.vista.cb_empleado_asg.currentData()
             self.modelo_ticket.guardar_lineatiempo('ASIGNADO',self.fecha(),Datos.id_ticket,id_asignar)
             self.ticket_resumen(Datos.id_ticket)
-            #prueba
-            #self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,   self.vista)
-            #self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
             Datos.cambio_estado = True
             self.mensaje.setText("TICKET REACIGNADO A : " + str(self.vista.cb_empleado_asg.currentText()))
             self.mensaje.exec_()

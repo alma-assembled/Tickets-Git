@@ -7,6 +7,7 @@ from Models.folioModel import ModelFolio
 from PyQt5.QtGui import QStandardItemModel
 from Models.global_variables import Datos, BdUsurio
 from PyQt5.QtCore import QTimer
+import Views.calendarioView 
 
 class CrontrollerTicket:
     def __init__(self, vista, ventana):
@@ -34,9 +35,14 @@ class CrontrollerTicket:
         self.vista.btn_ticket.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_myTickets.clicked.connect(lambda: self.cambiar_pagina(2))
         self.vista.btn_gurdar_add.clicked.connect(self.evtguardar_ticket)
-        self.vista.btn_allTickets_d.clicked.connect(self.evtradio_button_toggled)
-        #self.vista.btn_buscar_d.clicked.connect()
-
+        self.vista.btn_allTickets_d.clicked.connect(self.limpiar_filtros)
+        self.vista.btn_buscar_d.clicked.connect(self.filtrar_ticketsdashboard)
+        self.vista.btn_buscar_t.clicked.connect(self.filtar_mis_ticket)
+        self.vista.btn_allTickets_t.clicked.connect(self.limpiar_filtros)
+        self.vista.btn_add_ticket_t.clicked.connect(self.agregar_ticket_nuevo)
+        self.vista.btn_crearTicket.clicked.connect(self.agregar_ticket_nuevo) 
+        self.vista.btn_calendario_4.clicked.connect(lambda: self.abrir_calendario_dasboard())
+        self.vista.btn_calendario_3.clicked.connect(lambda: self.abrir_calendario_mis_tickets())
         # Tabla dashboart
         self.tb_dashboart_modelo = QStandardItemModel()
         self.vista.tb_tickets_dashboar.setModel(self.tb_dashboart_modelo)
@@ -104,7 +110,7 @@ class CrontrollerTicket:
             Evento disparado al cambiar el  estado del radio button
             Limpiar el campo txt_tiempo despues de cambiar el estado
         """
-        self.cambiar_pagina(0)
+        #Self.cambiar_pagina(0)
         if self.vista.rb_responsable.isChecked():
             self.modo_responsable()
         elif self.vista.rb_solicitante.isChecked():
@@ -129,7 +135,7 @@ class CrontrollerTicket:
         id_folio = self.modelo_folio_ticket.create_folio(numero_consecutivo_folio, id_departamento)
         folio_generado = self.modelo_folio_ticket.obtener_folio_byid(id_folio)
         id_ticket = self.modelo_ticket.guardar_ticket(asunto, descripcion, prioridad, fecha, id_categoria,
-                                                      id_departamento, BdUsurio.idEmpleado, id_folio)
+                                                      id_departamento, BdUsurio.idEmpleado, id_folio, folio_generado)
         self.modelo_ticket.guardar_lineatiempo(status, fecha, id_ticket, id_empleado)
         
         self.campos_ticket_despues_creacrear(folio_generado,fecha)
@@ -211,6 +217,8 @@ class CrontrollerTicket:
         self.vista.fr_ticket.setVisible(fr_ticket)
         self.vista.btn_myTickets.setVisible(btn_mytickets)
         self.vista.fr_myTickets.setVisible(fr_mytickets)
+        self.vista.btn_add_ticket_t.setVisible(btn_addticket)
+        self.vista.btn_crearTicket.setVisible(btn_addticket)
 
         self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
         self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.vista )
@@ -239,7 +247,42 @@ class CrontrollerTicket:
             self.vista.lb_contadorCancelados.setText(str(self.modelo_ticket.count_estado_responsable(BdUsurio.idEmpleado, 'CANCELADO')[0]))
 
     def filtrar_ticketsdashboard(self):
-        pass
-
+        Datos.filtro = True
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
+        
     def filtar_mis_ticket(self):
-        pass
+        Datos.filtro = True
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+
+    def limpiar_filtros(self):
+                self.vista.lbl_fecha_4.setText('XXXX-XX-XX')
+                self.vista.text_buscar_d.setText("")
+                self.vista.cb_status_d.setCurrentIndex(0)
+                self.vista.cb_empleado_d.setCurrentIndex(0)
+                self.vista.cb_departamento_d.setCurrentIndex(0)
+                self.vista.cb_categoria_d.setCurrentIndex(0)
+                self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
+
+                self.vista.lbl_fecha_3.setText('XXXX-XX-XX')
+                self.vista.text_buscar_t.setText("")
+                self.vista.cb_status_t.setCurrentIndex(0)
+                self.vista.cb_empleado_t.setCurrentIndex(0)
+                self.vista.cb_departamento_t.setCurrentIndex(0)
+                self.vista.cb_categoria_t.setCurrentIndex(0)
+                self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+
+    def abrir_calendario_dasboard(self):
+        self.calendario = Views.calendarioView.Calendario()
+        self.calendario.date_selected.connect(self.on_date_selected_dasboard)
+        self.calendario.show()
+    
+    def on_date_selected_dasboard(self, date):
+        self.vista.lbl_fecha_4.setText(str(date))
+
+    def abrir_calendario_mis_tickets(self):
+        self.calendario = Views.calendarioView.Calendario()
+        self.calendario.date_selected.connect(self.on_date_selected_mis_tickets)
+        self.calendario.show()
+
+    def on_date_selected_mis_tickets(self, date):
+        self.vista.lbl_fecha_3.setText(str(date))
