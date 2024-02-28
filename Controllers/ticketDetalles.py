@@ -13,10 +13,13 @@ class ticketsDetalles():
         self.modelo_folio_ticket = ModelFolio()
         self.vista.btn_guardar_asg_6.clicked.connect(self.guardarFecha_solucion)
         self.vista.btn_calendario_2.clicked.connect(lambda: self.abrir_calendario())
+        self.vista.btn_enviar_add.clicked.connect(self.guardar_convesacion)
         # INICIALIZAR MENSAJES
         self.mensaje = QtWidgets.QMessageBox()
         self.mensaje.setIcon(QtWidgets.QMessageBox.Information)
         self.mensaje.setWindowTitle(". . : : Informacion : : . .")
+        self.vista.pt_comentarios.setEnabled(False)
+
 
     def ticket_detalles(self, id_ticket):
         Datos.id_ticket = id_ticket
@@ -28,7 +31,7 @@ class ticketsDetalles():
                 self.ticket_asigando_campos()
             else:
                 self.ticket_enProceso_campos()
-            folio = self.modelo_folio_ticket.obtener_folio_byid(ticket_detalle[1])
+            self.folio = self.modelo_folio_ticket.obtener_folio_byid(ticket_detalle[1])
             self.vista.lbl_nombres.setText(str(ticket_detalle[8]))
             self.vista.cb_departamento_add.setCurrentText(str(ticket_detalle[5]))
             self.vista.cb_prioridad_add.setCurrentText(str(ticket_detalle[9]))
@@ -37,7 +40,7 @@ class ticketsDetalles():
             self.vista.ptext_asunto_add.setPlainText(str(ticket_detalle[3]))
             self.vista.ptext_descripcion_add.setPlainText(str(ticket_detalle[4]))
             self.vista.cb_empleado_add.setCurrentText(str(ticket_detalle[7]))
-            self.vista.lbl_n_ticket.setText(str(folio))
+            self.vista.lbl_n_ticket.setText(str(self.folio))
             self.vista.lbl_fecha_creacion.setText(str(ticket_detalle[2]))
             self.vista.lbl_estado.setText(str(ticket_detalle[11]))
             self.vista.cb_departamento_add.setEnabled(False)
@@ -47,6 +50,23 @@ class ticketsDetalles():
             self.vista.cb_empleado_add.setEnabled(False)
             self.vista.ptext_descripcion_add.setEnabled(False)
             self.vista.btn_gurdar_add.setVisible(False)
+
+            self.cargar_convesacion(self.folio)
+
+    def condiciones(self):
+        estado_actual = self.vista.lbl_estado.text()
+
+        if Datos.rol == 'RESPONSABLE':
+            bandera = False
+            if self.vista.lbl_estado.text() == 'ASIGNADO':
+                bandera =True
+            else:
+                bandera = False
+
+            self.vista.btn_guardar_asg_6.setVisible(bandera)
+            
+        if Datos.rol == 'SOLICITANTE':
+            self.vista.btn_guardar_asg_6.setVisible(False)
 
     def abrir_calendario(self):
         self.calendario = Views.calendarioView.Calendario()
@@ -119,4 +139,24 @@ class ticketsDetalles():
         # Cambiar a la página indicada
         vista.multiWidget.setCurrentIndex(index)
 
-    
+    def guardar_convesacion(self):
+        if self.vista.ptext_comentarios_add.toPlainText() != "":
+            message = self.vista.ptext_comentarios_add.toPlainText()
+            self.vista.pt_comentarios.appendPlainText(BdUsurio.nombres+": " + message)
+
+            with open("U:\Desarrollo\Chat-Tickes\\"+self.folio+".txt", "a") as file:
+                file.write(BdUsurio.nombres+": " + message + "\n")
+            self.vista.ptext_comentarios_add.clear()
+
+        else:
+            self.mensaje.setText("Escribe un comentario")
+            self.mensaje.exec_()
+
+    def cargar_convesacion(self, folio):
+        self.vista.pt_comentarios.clear()
+        try:
+            with open("U:\Desarrollo\Chat-Tickes\\"+folio+".txt", "r") as file:
+                chat_history = file.read()
+                self.vista.pt_comentarios.setPlainText(chat_history)
+        except FileNotFoundError:
+            pass

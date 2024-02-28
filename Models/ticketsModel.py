@@ -454,8 +454,7 @@ class ModelTickets:
                     x += f" AND D.ID_RHCDEPARTAMENTO = {id_departamento} "
                 
                 if id_ticket_categoria != 0:
-                    x += f" AND D.ID_RHCDEPARTAMENTO = {id_ticket_categoria} "
-
+                    x += f" AND CA.ID_BTICKETCATEGORIAS  = {id_ticket_categoria} "
                 x += """
                     AND LTT.STATUS NOT IN ('CERRADO', 'CANCELADO')
                     GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
@@ -514,7 +513,7 @@ class ModelTickets:
                     x += f" AND D.ID_RHCDEPARTAMENTO = {id_departamento} "
                 
                 if id_ticket_categoria != 0:
-                    x += f" AND D.ID_RHCDEPARTAMENTO = {id_ticket_categoria} "
+                    x += f"AND CA.ID_BTICKETCATEGORIAS  = {id_ticket_categoria} "
 
                 x += """ AND LTT.STATUS NOT IN ('CERRADO', 'CANCELADO')
                         GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
@@ -566,14 +565,14 @@ class ModelTickets:
                     if status != 0:
                         x += f" AND LTT.STATUS = '{status}' "
                     
-                    if id_empleado_solicitante != 0:
-                        x += f" AND BT.ID_CEMPLEADO = {id_empleado_solicitante} "
+                    if id_empleado_responsable != 0:
+                        x += f" AND LTT.ID_CEMPLEADO = {id_empleado_responsable} "
 
                     if id_departamento != 0 : 
                         x += f" AND D.ID_RHCDEPARTAMENTO = {id_departamento} "
                     
                     if id_ticket_categoria != 0:
-                        x += f" AND D.ID_RHCDEPARTAMENTO = {id_ticket_categoria} "
+                        x += f"AND  CA.ID_BTICKETCATEGORIAS  = {id_ticket_categoria} "
 
                     x += """GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
                         ) AS subquery
@@ -631,7 +630,7 @@ class ModelTickets:
                         x += f" AND D.ID_RHCDEPARTAMENTO = {id_departamento} "
                     
                     if id_ticket_categoria != 0:
-                        x += f" AND D.ID_RHCDEPARTAMENTO = {id_ticket_categoria} "
+                        x += f" AND CA.ID_BTICKETCATEGORIAS  = {id_ticket_categoria} "
 
                     x += """ GROUP BY BT.ID_BTICKET , F.ID_BTICKETFOLIO, BT.FECHA_CREACION, BT.ASUNTO, D.DEPARTAMENTO, CE.NOMBRE, BT.PRIORIDAD
                  ) AS subquery

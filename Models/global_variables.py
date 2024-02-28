@@ -3,6 +3,7 @@ class BdUsurio():
    nombre = "nombre"
    id_departamento = 0
    departamento = ""
+   nombres = ""
 
 
 class Datos():

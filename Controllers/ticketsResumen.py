@@ -6,23 +6,23 @@ from PyQt5.QtCore import QDate
 import datetime
 from PyQt5 import QtWidgets
 from Controllers.ticketDetalles import ticketsDetalles
-#from Controllers.comunController import ControllerComun
-from PyQt5.QtGui import QStandardItemModel
+from PyQt5.QtCore import QTimer
 
 class ticketsResumen():
     def __init__(self, vista):
+        self.folio = ""
         self.modelo_ticket =  ModelTickets()
         self.vista = vista
         self.modelo_folio_ticket = ModelFolio()
         self.controller_detalles =  ticketsDetalles(self.vista)
-        #self.controllerComon = ControllerComun() 
         self.vista.btn_calendario.clicked.connect(lambda: self.abrir_calendario())
         self.vista.btn_guardar_asg_4.clicked.connect(self.guardarFecha_solucion)
         self.vista.btn_sigEstado.clicked.connect(self.cambiar_estado)
         self.vista.btn_reasignar.clicked.connect(self.reasignar_ticket)
-        self.vista.btn_verDetalles.clicked.connect(lambda: self.cambiar_pagina(3,self.vista))
+        self.vista.btn_verDetalles.clicked.connect(lambda: self.cambiar_pagina(3))
         self.vista.btn_cancelarTicket.clicked.connect(self.cerrar_ticket)
-
+        self.vista.btn_enviar_add_3.clicked.connect(self.guardar_convesacion)
+        self.vista.pt_comentarios_3.setEnabled(False)
         # INICIALIZAR MENSAJES
         self.mensaje = QtWidgets.QMessageBox()
         self.mensaje.setIcon(QtWidgets.QMessageBox.Information)
@@ -72,8 +72,8 @@ class ticketsResumen():
 
         if resumen_ticket :
             #Datos.id_ticket = resumen_ticket[0]
-            folio = self.modelo_folio_ticket.obtener_folio_byid(resumen_ticket[1])
-            self.vista.txt_n_ticket.setText(str(folio))
+            self.folio = self.modelo_folio_ticket.obtener_folio_byid(resumen_ticket[1])
+            self.vista.txt_n_ticket.setText(str(self.folio))
             self.vista.ptext_asunto_asg.setPlainText(str(resumen_ticket[3]))
             self.vista.cb_departamento_asg.setCurrentText(str(resumen_ticket[4]))
             self.vista.cb_empleado_asg.setCurrentText(str(resumen_ticket[5]))
@@ -87,6 +87,11 @@ class ticketsResumen():
         self.vista.cb_departamento_asg.setEnabled(False)
         self.vista.ptext_asunto_asg.setEnabled(False)
         self.condiciones()
+        self.cargar_convesacion()
+        # Configurar un temporizador para verificar el texto del QLabel periódicamente
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.cargar_convesacion)
+        self.timer.start(1000)  # Verificar cada 100 milisegundos
                 
     def abrir_calendario(self):
         self.calendario = Views.calendarioView.Calendario()
@@ -172,9 +177,30 @@ class ticketsResumen():
             self.mensaje.setText("TICKET REACIGNADO A : " + str(self.vista.cb_empleado_asg.currentText()))
             self.mensaje.exec_()
     
-    def cambiar_pagina(self, index, vista):
+    def cambiar_pagina(self, index):
         # Cambiar a la página indicada
-        vista.multiWidget.setCurrentIndex(index)
+        self.vista.multiWidget.setCurrentIndex(index)
         self.controller_detalles.ticket_detalles(Datos.id_ticket)
 
+    def guardar_convesacion(self):
+        if self.vista.ptext_comentarios_add_3.toPlainText() != "":
+            message = self.vista.ptext_comentarios_add_3.toPlainText()
+            self.vista.pt_comentarios_3.appendPlainText(BdUsurio.nombres+": " + message)
+
+            with open("U:\Desarrollo\Chat-Tickes\\"+self.folio+".txt", "a") as file:
+                file.write(BdUsurio.nombres+": " + message + "\n")
+                
+            self.vista.ptext_comentarios_add_3.clear()
+        else:
+            self.mensaje.setText("Escribe un comentario")
+            self.mensaje.exec_()
+
+    def cargar_convesacion(self):
+        self.vista.pt_comentarios_3.clear()
+        try:
+            with open("U:\Desarrollo\Chat-Tickes\\"+self.folio+".txt", "r") as file:
+                chat_history = file.read()
+                self.vista.pt_comentarios_3.setPlainText(chat_history)
+        except FileNotFoundError:
+            pass
     

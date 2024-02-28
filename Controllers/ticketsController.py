@@ -16,7 +16,7 @@ class CrontrollerTicket:
         self.vista = vista
         self.ventana = ventana
         # CONTROLADORES
-        self.controllerComon = ControllerComun()  
+        self.controllerComon = ControllerComun(self.vista)  
 
         # MODELOS
         self.modelo_ticket = ModelTickets()
@@ -73,8 +73,8 @@ class CrontrollerTicket:
         """
         self.cambiar_pagina(0)
         nombre_completo = BdUsurio.nombre.split()
-        nombres = " ".join([str(nombre_completo[0]), str(nombre_completo[1])])
-        self.vista.lb_nombre.setText(nombres)
+        BdUsurio.nombres= " ".join([str(nombre_completo[0]), str(nombre_completo[1])])
+        self.vista.lb_nombre.setText(BdUsurio.nombres)
         self.vista.rb_solicitante.setChecked(True)
         self.controllerComon.llenar_cbdepartameto(self.vista.cb_departamento_d)
         self.controllerComon.llenar_cbdepartameto(self.vista.cb_departamento_t)
@@ -95,13 +95,14 @@ class CrontrollerTicket:
         self.controllerComon.llenar_cbprioridad(self.vista.cb_prioridad_add)
 
         # TABLA DASBOART
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar, self.vista)
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
     
     def actualizar_tablas(self):
         if Datos.cambio_estado:
-            self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar, self.vista)
-            self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista)
+            self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
+            self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
+            self.dashboard_contontar()
             Datos.cambio_estado = False
     # EVENTOS
     def evtradio_button_toggled(self):
@@ -110,7 +111,7 @@ class CrontrollerTicket:
             Evento disparado al cambiar el  estado del radio button
             Limpiar el campo txt_tiempo despues de cambiar el estado
         """
-        #Self.cambiar_pagina(0)
+        self.cambiar_pagina(0)
         if self.vista.rb_responsable.isChecked():
             self.modo_responsable()
         elif self.vista.rb_solicitante.isChecked():
@@ -139,8 +140,8 @@ class CrontrollerTicket:
         self.modelo_ticket.guardar_lineatiempo(status, fecha, id_ticket, id_empleado)
         
         self.campos_ticket_despues_creacrear(folio_generado,fecha)
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,   self.vista)
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
         
         self.mensaje.setText("Ticket " + str(folio_generado) + " generado correctamente")
         self.mensaje.exec_()
@@ -220,8 +221,8 @@ class CrontrollerTicket:
         self.vista.btn_add_ticket_t.setVisible(btn_addticket)
         self.vista.btn_crearTicket.setVisible(btn_addticket)
 
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets, self.vista )
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
     
     def fecha(self):
         """ Definir hora que se guardara """
@@ -248,11 +249,11 @@ class CrontrollerTicket:
 
     def filtrar_ticketsdashboard(self):
         Datos.filtro = True
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
+        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
         
     def filtar_mis_ticket(self):
         Datos.filtro = True
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
 
     def limpiar_filtros(self):
                 self.vista.lbl_fecha_4.setText('XXXX-XX-XX')
@@ -261,7 +262,7 @@ class CrontrollerTicket:
                 self.vista.cb_empleado_d.setCurrentIndex(0)
                 self.vista.cb_departamento_d.setCurrentIndex(0)
                 self.vista.cb_categoria_d.setCurrentIndex(0)
-                self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar,  self.vista)
+                self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
 
                 self.vista.lbl_fecha_3.setText('XXXX-XX-XX')
                 self.vista.text_buscar_t.setText("")
@@ -269,7 +270,7 @@ class CrontrollerTicket:
                 self.vista.cb_empleado_t.setCurrentIndex(0)
                 self.vista.cb_departamento_t.setCurrentIndex(0)
                 self.vista.cb_categoria_t.setCurrentIndex(0)
-                self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets,  self.vista )
+                self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
 
     def abrir_calendario_dasboard(self):
         self.calendario = Views.calendarioView.Calendario()

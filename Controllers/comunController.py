@@ -12,6 +12,11 @@ from Controllers.ticketsResumen import ticketsResumen
 
 class ControllerComun:
 
+    def __init__(self, vista):
+        self.vista = vista
+        self.ticket_resumen =  ticketsResumen(self.vista)
+        
+
     @staticmethod
     def llenar_cbdepartameto(combo_box):
         """
@@ -75,7 +80,7 @@ class ControllerComun:
         combo_box.addItem("MEDIA", "MEDIA")
         combo_box.addItem("BAJA", "BAJA")
 
-    def llenar_tb_dasboar(self, md_tabla, tb_dasboar, vista):
+    def llenar_tb_dasboar(self, md_tabla, tb_dasboar):
         # Limpiar el modelo de datos
         md_tabla.clear()
 
@@ -85,12 +90,12 @@ class ControllerComun:
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "RESPONSABLE", "PRIORIDAD", "STATUS","VER"])
             if Datos.filtro == True:
-                fecha = vista.lbl_fecha_4.text()
-                codigo = vista.text_buscar_d.text()
-                status = vista.cb_status_d.currentData()
-                id_responsable = vista.cb_empleado_d.currentData()
-                id_departamento = vista.cb_departamento_d.currentData()
-                id_ticket_categoria = vista.cb_categoria_d.currentData()
+                fecha = self.vista.lbl_fecha_4.text()
+                codigo = self.vista.text_buscar_d.text()
+                status = self.vista.cb_status_d.currentData()
+                id_responsable = self.vista.cb_empleado_d.currentData()
+                id_departamento = self.vista.cb_departamento_d.currentData()
+                id_ticket_categoria = self.vista.cb_categoria_d.currentData()
                 id_solicitante = BdUsurio.idEmpleado
                 tickets_all = model_ticket.select_tickets_dashboard_solicitante_filtro(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria, fecha)
                 Datos.filtro = False
@@ -101,12 +106,12 @@ class ControllerComun:
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "AUTOR", "PRIORIDAD", "STATUS", "VER"])
             if Datos.filtro == True:
-                fecha = vista.lbl_fecha_4.text()
-                codigo = vista.text_buscar_d.text()
-                status = vista.cb_status_d.currentData()
-                id_solicitante = vista.cb_empleado_d.currentData()
-                id_departamento = vista.cb_departamento_d.currentData()
-                id_ticket_categoria = vista.cb_categoria_d.currentData()
+                fecha = self.vista.lbl_fecha_4.text()
+                codigo = self.vista.text_buscar_d.text()
+                status = self.vista.cb_status_d.currentData()
+                id_solicitante = self.vista.cb_empleado_d.currentData()
+                id_departamento = self.vista.cb_departamento_d.currentData()
+                id_ticket_categoria = self.vista.cb_categoria_d.currentData()
                 id_responsable = BdUsurio.idEmpleado
                 tickets_all = model_ticket.select_tickets_dashboard_responsable_filtro(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria,fecha)
                 Datos.filtro = False
@@ -140,7 +145,7 @@ class ControllerComun:
 
             # Agregar un botón
             button = QPushButton("VER")
-            button.clicked.connect(lambda: self.on_button_clicked_dashboard(md_tabla,tb_dasboar, vista))
+            button.clicked.connect(lambda: self.on_button_clicked_dashboard(md_tabla,tb_dasboar))
             tb_dasboar.setIndexWidget(md_tabla.index(row, 7), button)
 
         # Asignar el modelo de datos a la tabla
@@ -154,7 +159,7 @@ class ControllerComun:
         header = tb_dasboar.horizontalHeader()
         header.setStyleSheet("background-color: #3c4145;color: #3c4145;")
     
-    def llenar_tb_mis_tickets(self, md_tabla, tb_tickets, vista):
+    def llenar_tb_mis_tickets(self, md_tabla, tb_tickets):
         # Limpiar el modelo de datos
         md_tabla.clear()
 
@@ -165,12 +170,12 @@ class ControllerComun:
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "RESPONSABLE", "PRIORIDAD", "STATUS","VER"])
             if Datos.filtro == True:
-                fecha = vista.lbl_fecha_3.text()
-                codigo = vista.text_buscar_t.text()
-                status = vista.cb_status_t.currentData()
-                id_responsable = vista.cb_empleado_t.currentData()
-                id_departamento = vista.cb_departamento_t.currentData()
-                id_ticket_categoria = vista.cb_categoria_t.currentData()
+                fecha = self.vista.lbl_fecha_3.text()
+                codigo = self.vista.text_buscar_t.text()
+                status = self.vista.cb_status_t.currentData()
+                id_responsable = self.vista.cb_empleado_t.currentData()
+                id_departamento = self.vista.cb_departamento_t.currentData()
+                id_ticket_categoria = self.vista.cb_categoria_t.currentData()
                 id_solicitante = BdUsurio.idEmpleado
                 tickets_all = model_ticket.filtro_select_tickets_mis_tickets_solicitante(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria,fecha)
                 Datos.filtro = False
@@ -180,12 +185,12 @@ class ControllerComun:
             md_tabla.setHorizontalHeaderLabels(["N FOLIO", "FECHA", "TITULO", "DEPARTAMENTO",
                                                 "AUTOR", "PRIORIDAD", "STATUS","VER"])
             if Datos.filtro == True:
-                fecha = vista.lbl_fecha_3.text()
-                codigo = vista.text_buscar_t.text()
-                status = vista.cb_status_t.currentData()
-                id_solicitante = vista.cb_empleado_t.currentData()
-                id_departamento = vista.cb_departamento_t.currentData()
-                id_ticket_categoria = vista.cb_categoria_t.currentData()
+                fecha = self.vista.lbl_fecha_3.text()
+                codigo = self.vista.text_buscar_t.text()
+                status = self.vista.cb_status_t.currentData()
+                id_solicitante = self.vista.cb_empleado_t.currentData()
+                id_departamento = self.vista.cb_departamento_t.currentData()
+                id_ticket_categoria = self.vista.cb_categoria_t.currentData()
                 id_responsable = BdUsurio.idEmpleado
                 tickets_all = model_ticket.filtro_select_tickets_mis_tickets_reponsable(codigo, id_solicitante, status,id_responsable,id_departamento,id_ticket_categoria, fecha)
                 Datos.filtro = False
@@ -219,7 +224,7 @@ class ControllerComun:
 
             # Agregar un botón
             button = QPushButton("VER")
-            button.clicked.connect(lambda: self.on_button_clicked_mis_tickets(md_tabla, tb_tickets, vista))
+            button.clicked.connect(lambda: self.on_button_clicked_mis_tickets(md_tabla, tb_tickets))
             tb_tickets.setIndexWidget(md_tabla.index(row, 7), button)
 
         # Asignar el modelo de datos a la tabla
@@ -233,31 +238,29 @@ class ControllerComun:
         header = tb_tickets.horizontalHeader()
         header.setStyleSheet("background-color: #3c4145;color: #3c4145;")
     
-    def on_button_clicked_mis_tickets(self, md_tabla, tb_ticket, vista):
-        ticket_resumen =  ticketsResumen(vista)
+    def on_button_clicked_mis_tickets(self, md_tabla, tb_ticket):
         # Obtener los índices de las filas seleccionadas 
         selected_indexes = tb_ticket.selectionModel().selectedRows()
         for index in sorted(selected_indexes, reverse=True):
             # Obtener el identificador único de la fila seleccionada
             id_unique = md_tabla.data(index, Qt.UserRole)
             #print("Id:", id_unique)
-            self.cambiar_pagina(4, vista)
-            ticket_resumen.ticket_resumen(id_unique)
+            self.cambiar_pagina(4)
+            self.ticket_resumen.ticket_resumen(id_unique)
             
-    def on_button_clicked_dashboard(self, md_tabla, tb_dasboar, vista):
-        ticket_resumen =  ticketsResumen(vista)
+    def on_button_clicked_dashboard(self, md_tabla, tb_dasboar):
         # Obtener los índices de las filas seleccionadas 
         selected_indexes = tb_dasboar.selectionModel().selectedRows()
         for index in sorted(selected_indexes, reverse=True):
             # Obtener el identificador único de la fila seleccionada
             id_unique = md_tabla.data(index, Qt.UserRole)
             #print("Id:", id_unique)
-            self.cambiar_pagina(4, vista)
-            ticket_resumen.ticket_resumen(id_unique)
+            self.cambiar_pagina(4)
+            self.ticket_resumen.ticket_resumen(id_unique)
 
-    def cambiar_pagina(self, index, vista):
+    def cambiar_pagina(self, index):
         # Cambiar a la página indicada
-        vista.multiWidget.setCurrentIndex(index)
+        self.vista.multiWidget.setCurrentIndex(index)
         
 class ColorDelegate(QStyledItemDelegate):
     def initStyleOption(self, option, index):
