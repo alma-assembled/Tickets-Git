@@ -6,7 +6,8 @@ class DataBase():
     def __init__(self):
         self.connection = pymysql.connect(
             host='192.168.1.200',
-            # host='arp-assembled.c8ev10pyuzpv.us-east-1.rds.amazonaws.com',
+            #host='arp-assembled.c8ev10pyuzpv.us-east-1.rds.amazonaws.com',
+            #host='127.0.0.1',
             database ='OPS', 
             user = 'usuario',
             password ='#4ayN23*'

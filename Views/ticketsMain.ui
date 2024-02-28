@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>951</width>
-    <height>688</height>
+    <width>993</width>
+    <height>717</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -309,7 +309,7 @@ margin-left: -100px;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>951</width>
+      <width>1001</width>
       <height>51</height>
      </rect>
     </property>
@@ -329,7 +329,7 @@ margin-left: -100px;
     <widget class="QLabel" name="lb_icon_2">
      <property name="geometry">
       <rect>
-       <x>890</x>
+       <x>930</x>
        <y>10</y>
        <width>51</width>
        <height>31</height>
@@ -348,7 +348,7 @@ margin-left: -100px;
      <rect>
       <x>160</x>
       <y>50</y>
-      <width>791</width>
+      <width>831</width>
       <height>681</height>
      </rect>
     </property>
@@ -372,7 +372,7 @@ line-height: normal;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>791</width>
+        <width>831</width>
         <height>141</height>
        </rect>
       </property>
@@ -397,7 +397,7 @@ padding:8px;
       <widget class="QPushButton" name="btn_crearTicket">
        <property name="geometry">
         <rect>
-         <x>600</x>
+         <x>650</x>
          <y>10</y>
          <width>141</width>
          <height>21</height>
@@ -429,7 +429,7 @@ color: rgb(237, 237, 237)</string>
         <rect>
          <x>0</x>
          <y>40</y>
-         <width>791</width>
+         <width>831</width>
          <height>91</height>
         </rect>
        </property>
@@ -465,7 +465,7 @@ color: rgb(237, 237, 237)</string>
             </item>
             <item>
              <widget class="QWidget" name="text_5" native="true">
-              <widget class="QLabel" name="lb_contadorAsignado">
+              <widget class="QLabel" name="lb_contadorproceso">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -529,7 +529,7 @@ image: url(:/resume/almuerzo-cohete.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_11" native="true">
-              <widget class="QLabel" name="lb_contador_enProceso">
+              <widget class="QLabel" name="lb_contador_terminados">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -593,7 +593,7 @@ image: url(:/resume/cheque.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_9" native="true">
-              <widget class="QLabel" name="lb_contador_finalizado">
+              <widget class="QLabel" name="lb_contador_cerrados">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -738,7 +738,7 @@ image: url(:/resume/estrella.png);</string>
             </item>
             <item>
              <widget class="QWidget" name="text_1" native="true">
-              <widget class="QLabel" name="lb_contador_registrados">
+              <widget class="QLabel" name="lb_contador_asignados">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -765,16 +765,16 @@ image: url(:/resume/estrella.png);</string>
        <rect>
         <x>0</x>
         <y>260</y>
-        <width>791</width>
+        <width>851</width>
         <height>451</height>
        </rect>
       </property>
       <widget class="QTableView" name="tb_tickets_dashboar">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>751</width>
+         <x>10</x>
+         <y>10</y>
+         <width>801</width>
          <height>341</height>
         </rect>
        </property>
@@ -784,8 +784,8 @@ image: url(:/resume/estrella.png);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>150</y>
-        <width>781</width>
+        <y>140</y>
+        <width>831</width>
         <height>111</height>
        </rect>
       </property>
@@ -795,16 +795,6 @@ image: url(:/resume/estrella.png);</string>
          <x>190</x>
          <y>10</y>
          <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="fecha_d">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>10</y>
-         <width>121</width>
          <height>31</height>
         </rect>
        </property>
@@ -903,25 +893,157 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
       </widget>
+      <widget class="QPushButton" name="btn_calendario_4">
+       <property name="geometry">
+        <rect>
+         <x>760</x>
+         <y>10</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/general/calendario.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_fecha_4">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>10</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>XXXX-XX-XX</string>
+       </property>
+      </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="myTickets"/>
+    <widget class="QWidget" name="myTickets">
+     <widget class="QWidget" name="resumen_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>831</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#w_registered, #w_canceled , #w_assigned,#w_finalized, #w_inProgress{
+padding:8px;
+}</string>
+      </property>
+      <widget class="QLabel" name="lb_litulo_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>201</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>LINEA DEL TIEMPO TICKET</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_volver">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>10</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(6, 91, 103);
+color: rgb(237, 237, 237)</string>
+       </property>
+       <property name="text">
+        <string>VOLVRER</string>
+       </property>
+      </widget>
+      <widget class="Line" name="linea_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>130</y>
+         <width>791</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QScrollArea" name="scroll_lineatiempo">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>50</y>
+        <width>491</width>
+        <height>591</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>489</width>
+         <height>589</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
     <widget class="QWidget" name="tickets">
      <widget class="QWidget" name="widget_8" native="true">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>190</y>
-        <width>791</width>
+        <width>821</width>
         <height>451</height>
        </rect>
       </property>
-      <widget class="QTableView" name="tableView_3">
+      <widget class="QTableView" name="tb_mis_tickets">
        <property name="geometry">
         <rect>
          <x>20</x>
          <y>20</y>
-         <width>751</width>
+         <width>791</width>
          <height>411</height>
         </rect>
        </property>
@@ -932,7 +1054,7 @@ color:  rgb(139, 132, 132);</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>791</width>
+        <width>821</width>
         <height>81</height>
        </rect>
       </property>
@@ -984,8 +1106,8 @@ color: rgb(237, 237, 237)</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>80</y>
-        <width>781</width>
+        <y>90</y>
+        <width>821</width>
         <height>111</height>
        </rect>
       </property>
@@ -995,16 +1117,6 @@ color: rgb(237, 237, 237)</string>
          <x>190</x>
          <y>10</y>
          <width>151</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="fecha_t">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>10</y>
-         <width>121</width>
          <height>31</height>
         </rect>
        </property>
@@ -1103,6 +1215,56 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
       </widget>
+      <widget class="QPushButton" name="btn_calendario_3">
+       <property name="geometry">
+        <rect>
+         <x>770</x>
+         <y>20</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/general/calendario.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_fecha_3">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>20</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>XXXX-XX-XX</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="addTicket">
@@ -1113,12 +1275,12 @@ color:  rgb(139, 132, 132);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
-        <width>791</width>
+        <y>0</y>
+        <width>821</width>
         <height>61</height>
        </rect>
       </property>
-      <widget class="QLabel" name="title_3">
+      <widget class="QLabel" name="lbl_agregar_ticket">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1134,57 +1296,28 @@ color:  rgb(139, 132, 132);</string>
       <widget class="Line" name="line_3">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>-20</x>
          <y>50</y>
-         <width>791</width>
-         <height>16</height>
+         <width>841</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
-     </widget>
-     <widget class="QWidget" name="add" native="true">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>781</width>
-        <height>571</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <widget class="QPushButton" name="btn_gurdar_add">
+      <widget class="QLabel" name="lbl_n_ticket">
        <property name="geometry">
         <rect>
-         <x>300</x>
-         <y>400</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>GUARDAR</string>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="dte_fechoy">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>20</y>
-         <width>100</width>
-         <height>40</height>
+         <x>720</x>
+         <y>0</y>
+         <width>91</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <family>Inter</family>
+         <family>Arial</family>
          <pointsize>-1</pointsize>
          <weight>50</weight>
          <italic>false</italic>
@@ -1194,35 +1327,131 @@ color:  rgb(139, 132, 132);</string>
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
        <property name="styleSheet">
-        <string notr="true"> color: rgb(6, 91, 103);
-   background: linear-gradient(360deg,#03e9f4);</string>
+        <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
-       <property name="frame">
-        <bool>false</bool>
+       <property name="text">
+        <string>XX0000</string>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </widget>
+      <widget class="QLabel" name="lbl_n_ticket_2">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>0</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
        </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::NoButtons</enum>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
        </property>
-       <property name="calendarPopup">
-        <bool>false</bool>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
-       <property name="date">
-        <date>
-         <year>2023</year>
-         <month>10</month>
-         <day>6</day>
-        </date>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>TICKET:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_fechaCreacion">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>30</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>FECHA CREACION</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_fecha_creacion">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>20</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>XXXX-XX-XX</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="add" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>821</width>
+        <height>611</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <widget class="QPushButton" name="btn_gurdar_add">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>290</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>GUARDAR</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>20</y>
+         <y>40</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1249,14 +1478,14 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>DEPARTAMENTO</string>
+        <string>DEPARTAMENTO*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_2">
        <property name="geometry">
         <rect>
          <x>330</x>
-         <y>20</y>
+         <y>40</y>
          <width>81</width>
          <height>24</height>
         </rect>
@@ -1283,14 +1512,14 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>CATEGORIA</string>
+        <string>CATEGORIA*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_3">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>140</y>
+         <x>10</x>
+         <y>110</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1323,18 +1552,18 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QPlainTextEdit" name="ptext_asunto_add">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>180</y>
-         <width>751</width>
-         <height>61</height>
+         <x>10</x>
+         <y>130</y>
+         <width>781</width>
+         <height>41</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_7">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>250</y>
+         <x>10</x>
+         <y>170</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1367,9 +1596,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QPlainTextEdit" name="ptext_descripcion_add">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>280</y>
-         <width>751</width>
+         <x>10</x>
+         <y>190</y>
+         <width>781</width>
          <height>61</height>
         </rect>
        </property>
@@ -1378,8 +1607,8 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>370</y>
-         <width>131</width>
+         <y>270</y>
+         <width>111</width>
          <height>24</height>
         </rect>
        </property>
@@ -1405,14 +1634,14 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>ASIGNAR*</string>
+        <string>RESPONSABLE*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_17">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>410</y>
+         <y>500</y>
          <width>111</width>
          <height>24</height>
         </rect>
@@ -1473,13 +1702,13 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>PRIORIDAD</string>
+        <string>PRIORIDAD*</string>
        </property>
       </widget>
       <widget class="QLabel" name="lb_fechaSolucion">
        <property name="geometry">
         <rect>
-         <x>360</x>
+         <x>330</x>
          <y>90</y>
          <width>121</width>
          <height>16</height>
@@ -1489,21 +1718,11 @@ color:  rgb(139, 132, 132);</string>
         <string>FECHA SOLUCION</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="fecha_add">
-       <property name="geometry">
-        <rect>
-         <x>510</x>
-         <y>90</y>
-         <width>110</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QComboBox" name="cb_departamento_add">
        <property name="geometry">
         <rect>
          <x>110</x>
-         <y>20</y>
+         <y>40</y>
          <width>211</width>
          <height>31</height>
         </rect>
@@ -1512,9 +1731,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QComboBox" name="cb_categoria_add">
        <property name="geometry">
         <rect>
-         <x>400</x>
-         <y>20</y>
-         <width>251</width>
+         <x>450</x>
+         <y>40</y>
+         <width>201</width>
          <height>31</height>
         </rect>
        </property>
@@ -1522,9 +1741,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QComboBox" name="cb_prioridad_add">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>110</x>
          <y>80</y>
-         <width>171</width>
+         <width>211</width>
          <height>31</height>
         </rect>
        </property>
@@ -1532,9 +1751,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QComboBox" name="cb_empleado_add">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>360</y>
-         <width>641</width>
+         <x>120</x>
+         <y>260</y>
+         <width>671</width>
          <height>31</height>
         </rect>
        </property>
@@ -1543,23 +1762,232 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>440</y>
-         <width>751</width>
-         <height>61</height>
+         <y>520</y>
+         <width>791</width>
+         <height>41</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="btn_enviar_add">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>510</y>
-         <width>141</width>
-         <height>31</height>
+         <x>750</x>
+         <y>560</y>
+         <width>51</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
         <string>Enviar</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="pt_comentarios">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>320</y>
+         <width>791</width>
+         <height>171</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_nombre_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>51</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>AUTOR:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_nombres">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>0</y>
+         <width>401</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>Nombre Completo</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_estado_text">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>10</y>
+         <width>61</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>ESTADO:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_estado">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>40</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>ESTADO</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_calendario_2">
+       <property name="geometry">
+        <rect>
+         <x>610</x>
+         <y>80</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/general/calendario.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_guardar_asg_6">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>80</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>GUARDAR FECHA</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_fecha_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>80</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>XXXX-XX-XX</string>
        </property>
       </widget>
      </widget>
@@ -1570,92 +1998,31 @@ color:  rgb(139, 132, 132);</string>
        <rect>
         <x>0</x>
         <y>60</y>
-        <width>781</width>
+        <width>831</width>
         <height>571</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <widget class="QPushButton" name="btn_guardar_asg">
+      <widget class="QPushButton" name="btn_reasignar">
        <property name="geometry">
         <rect>
-         <x>290</x>
-         <y>200</y>
-         <width>141</width>
-         <height>31</height>
+         <x>460</x>
+         <y>180</y>
+         <width>131</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
-        <string>GUARDAR</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btn_enviar_asg">
-       <property name="geometry">
-        <rect>
-         <x>620</x>
-         <y>370</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Enviar</string>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="dte_fechoy_3">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>660</x>
-         <y>10</y>
-         <width>100</width>
-         <height>40</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Inter</family>
-         <pointsize>-1</pointsize>
-         <weight>50</weight>
-         <italic>false</italic>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"> color: rgb(6, 91, 103);
-   background: linear-gradient(360deg,#03e9f4);</string>
-       </property>
-       <property name="frame">
-        <bool>false</bool>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::NoButtons</enum>
-       </property>
-       <property name="calendarPopup">
-        <bool>false</bool>
-       </property>
-       <property name="date">
-        <date>
-         <year>2023</year>
-         <month>10</month>
-         <day>6</day>
-        </date>
+        <string>REASIGNAR</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_nombre_11">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>70</y>
+         <y>60</y>
          <width>131</width>
          <height>24</height>
         </rect>
@@ -1688,9 +2055,9 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QLabel" name="lbl_nombre_15">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>150</y>
-         <width>61</width>
+         <width>101</width>
          <height>24</height>
         </rect>
        </property>
@@ -1722,7 +2089,7 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QLabel" name="title_10">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>10</y>
          <width>61</width>
          <height>31</height>
@@ -1732,11 +2099,74 @@ color:  rgb(139, 132, 132);</string>
         <string>ASUNTO</string>
        </property>
       </widget>
-      <widget class="QLabel" name="lbl_nombre_16">
+      <widget class="QComboBox" name="cb_empleado_asg">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>140</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_departamento_asg">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>50</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_asunto_asg">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_enviar_add_3">
+       <property name="geometry">
+        <rect>
+         <x>760</x>
+         <y>540</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enviar</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="pt_comentarios_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>250</y>
+         <width>801</width>
+         <height>221</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="ptext_comentarios_add_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>500</y>
+         <width>801</width>
+         <height>41</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_nombre_19">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>260</y>
+         <y>480</y>
          <width>111</width>
          <height>24</height>
         </rect>
@@ -1763,47 +2193,236 @@ color:  rgb(139, 132, 132);</string>
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>COMENTARIO</string>
+        <string>COMENTAR</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cb_empleado_asg">
+      <widget class="QLabel" name="lbl_nombre_20">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>150</y>
-         <width>471</width>
-         <height>31</height>
+         <x>10</x>
+         <y>220</y>
+         <width>111</width>
+         <height>24</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>COMENTARIOS</string>
+       </property>
       </widget>
-      <widget class="QComboBox" name="cb_departamento_asg">
+      <widget class="QLabel" name="lbl_nombre_21">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>70</y>
-         <width>351</width>
-         <height>31</height>
+         <x>10</x>
+         <y>100</y>
+         <width>61</width>
+         <height>24</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>ESTATUS</string>
+       </property>
       </widget>
-      <widget class="QPlainTextEdit" name="ptext_asunto_asg">
+      <widget class="QLabel" name="lbl_estado_2">
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>10</y>
-         <width>511</width>
-         <height>41</height>
+         <y>100</y>
+         <width>111</width>
+         <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>ESTADO</string>
+       </property>
       </widget>
-      <widget class="QPlainTextEdit" name="ptext_comentarios_asg">
+      <widget class="QPushButton" name="btn_sigEstado">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>260</y>
-         <width>631</width>
-         <height>61</height>
+         <x>260</x>
+         <y>100</y>
+         <width>131</width>
+         <height>21</height>
         </rect>
+       </property>
+       <property name="text">
+        <string>SIG ESTADO</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_n_ticket_5">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>0</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>FECHA SOLUCION</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_guardar_asg_4">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>70</y>
+         <width>201</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Guardar</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_calendario">
+       <property name="geometry">
+        <rect>
+         <x>760</x>
+         <y>30</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/general/calendario.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_fecha">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>30</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> color: rgb(6, 91, 103);</string>
+       </property>
+       <property name="text">
+        <string>XXXX-XX-XX</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_cancelarTicket">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>100</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: rgb(170, 0, 0);
+</string>
+       </property>
+       <property name="text">
+        <string>CANCELAR TICKET</string>
        </property>
       </widget>
      </widget>
@@ -1812,11 +2431,11 @@ color:  rgb(139, 132, 132);</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>791</width>
+        <width>831</width>
         <height>61</height>
        </rect>
       </property>
-      <widget class="QLabel" name="title_9">
+      <widget class="QLabel" name="titulo">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -1826,23 +2445,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
        <property name="text">
-        <string>ASIGNAR TICKET</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btn_editarTicket">
-       <property name="geometry">
-        <rect>
-         <x>600</x>
-         <y>10</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Editar Ticcket</string>
+        <string>REASIGNAR TICKET</string>
        </property>
       </widget>
       <widget class="Line" name="line_9">
@@ -1850,12 +2453,93 @@ color:  rgb(139, 132, 132);</string>
         <rect>
          <x>0</x>
          <y>50</y>
-         <width>791</width>
+         <width>831</width>
          <height>16</height>
         </rect>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_n_ticket_3">
+       <property name="geometry">
+        <rect>
+         <x>610</x>
+         <y>10</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>TICKET:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="txt_n_ticket">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>10</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="toolTipDuration">
+        <number>1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>XX0000</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_verDetalles">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ver Detaller</string>
        </property>
       </widget>
      </widget>

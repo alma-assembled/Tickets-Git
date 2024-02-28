@@ -18,6 +18,7 @@
     <file>eliminar.png</file>
   </qresource>
   <qresource prefix="general">
+    <file>calendario.png</file>
     <file>busqueda.png</file>
   </qresource>
 </RCC>

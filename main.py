@@ -12,6 +12,7 @@ if __name__ == "__main__":
     modelo = ModelUser()
     vista = Ui_ViewLogin()
     vista.setupUi(ventana_principal)
-    controlador = ControllerUser(modelo, vista,ventana_principal)
+    controlador = ControllerUser(modelo, vista, ventana_principal)
     ventana_principal.show()
     sys.exit(app.exec_())
+

@@ -17,6 +17,8 @@ class Ui_ViewLogin(object):
         ViewLogin.resize(423, 550)
         self.widget = QtWidgets.QWidget(ViewLogin)
         self.widget.setGeometry(QtCore.QRect(40, 10, 370, 480))
+        ViewLogin.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        ViewLogin.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.widget.setStyleSheet("QPushButton#pushButton{    \n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
 "    color:rgba(255, 255, 255, 210);\n"
