@@ -10,8 +10,8 @@ from PyQt5.QtCore import QTimer
 
 class ticketsResumen():
     def __init__(self, vista):
-        #self.ruta = "U:\\Desarrollo\\Chat-Tickes\\"
-        self.ruta =  "C:\\ARP\\Chat-Tickes\\"
+        self.ruta = "U:\\Desarrollo\\Chat-Tickes\\"
+        #self.ruta =  "C:\\ARP\\Chat-Tickes\\"
         self.modelo_ticket =  ModelTickets()
         self.vista = vista
         self.modelo_folio_ticket = ModelFolio()
