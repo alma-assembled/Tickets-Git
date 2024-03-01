@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>993</width>
+    <width>1002</width>
     <height>717</height>
    </rect>
   </property>
@@ -79,9 +79,9 @@ color:rgb(106, 255, 118);
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
+      <y>40</y>
       <width>161</width>
-      <height>671</height>
+      <height>681</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -188,7 +188,7 @@ margin-left: -100px;
     <widget class="QLabel" name="lb_icon">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>40</x>
        <y>10</y>
        <width>71</width>
        <height>51</height>
@@ -310,7 +310,7 @@ margin-left: -100px;
       <x>0</x>
       <y>0</y>
       <width>1001</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <widget class="QLabel" name="h1">
@@ -329,10 +329,10 @@ margin-left: -100px;
     <widget class="QLabel" name="lb_icon_2">
      <property name="geometry">
       <rect>
-       <x>930</x>
-       <y>10</y>
+       <x>940</x>
+       <y>0</y>
        <width>51</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -347,9 +347,9 @@ margin-left: -100px;
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>50</y>
-      <width>831</width>
-      <height>681</height>
+      <y>40</y>
+      <width>841</width>
+      <height>691</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -364,7 +364,7 @@ line-height: normal;
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="dashboard">
      <widget class="QWidget" name="resumen" native="true">
@@ -394,29 +394,12 @@ padding:8px;
         <string>DASHBOARD</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_crearTicket">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>10</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(6, 91, 103);
-color: rgb(237, 237, 237)</string>
-       </property>
-       <property name="text">
-        <string>Crear Ticcket</string>
-       </property>
-      </widget>
       <widget class="Line" name="linea">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>130</y>
-         <width>791</width>
+         <width>831</width>
          <height>16</height>
         </rect>
        </property>
@@ -434,70 +417,6 @@ color: rgb(237, 237, 237)</string>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="1">
-         <widget class="QWidget" name="asignados" native="true">
-          <widget class="QWidget" name="layoutWidget">
-           <property name="geometry">
-            <rect>
-             <x>60</x>
-             <y>0</y>
-             <width>91</width>
-             <height>91</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <widget class="QWidget" name="text_4" native="true">
-              <widget class="QLabel" name="label_5">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>10</y>
-                 <width>81</width>
-                 <height>21</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>En proceso</string>
-               </property>
-              </widget>
-             </widget>
-            </item>
-            <item>
-             <widget class="QWidget" name="text_5" native="true">
-              <widget class="QLabel" name="lb_contadorproceso">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>10</y>
-                 <width>47</width>
-                 <height>13</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-              </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="w_enProceso" native="true">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>20</y>
-             <width>61</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: #063456;
-image: url(:/resume/almuerzo-cohete.png);</string>
-           </property>
-          </widget>
-         </widget>
-        </item>
         <item row="0" column="2">
          <widget class="QWidget" name="enPorreso" native="true">
           <widget class="QWidget" name="layoutWidget_4">
@@ -626,23 +545,9 @@ image: url(:/resume/apreton-de-manos.png);</string>
           </widget>
          </widget>
         </item>
-        <item row="0" column="4">
-         <widget class="QWidget" name="cancelados" native="true">
-          <widget class="QWidget" name="w_cancelado" native="true">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>20</y>
-             <width>61</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: #CE2323;
-image: url(:/resume/eliminar.png);</string>
-           </property>
-          </widget>
-          <widget class="QWidget" name="layoutWidget_2">
+        <item row="0" column="1">
+         <widget class="QWidget" name="asignados" native="true">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -651,13 +556,10 @@ image: url(:/resume/eliminar.png);</string>
              <height>91</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <property name="spacing">
-             <number>0</number>
-            </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="QWidget" name="text_6" native="true">
-              <widget class="QLabel" name="label_13">
+             <widget class="QWidget" name="text_4" native="true">
+              <widget class="QLabel" name="label_5">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -667,14 +569,14 @@ image: url(:/resume/eliminar.png);</string>
                 </rect>
                </property>
                <property name="text">
-                <string>Cancelados</string>
+                <string>En proceso</string>
                </property>
               </widget>
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="text_7" native="true">
-              <widget class="QLabel" name="lb_contadorCancelados">
+             <widget class="QWidget" name="text_5" native="true">
+              <widget class="QLabel" name="lb_contadorproceso">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -690,6 +592,20 @@ image: url(:/resume/eliminar.png);</string>
              </widget>
             </item>
            </layout>
+          </widget>
+          <widget class="QWidget" name="w_enProceso" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>20</y>
+             <width>61</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: #063456;
+image: url(:/resume/almuerzo-cohete.png);</string>
+           </property>
           </widget>
          </widget>
         </item>
@@ -757,7 +673,91 @@ image: url(:/resume/estrella.png);</string>
           </widget>
          </widget>
         </item>
+        <item row="0" column="4">
+         <widget class="QWidget" name="cancelados" native="true">
+          <widget class="QWidget" name="w_cancelado" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>20</y>
+             <width>61</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: #CE2323;
+image: url(:/resume/eliminar.png);</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>60</x>
+             <y>0</y>
+             <width>91</width>
+             <height>91</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="text_6" native="true">
+              <widget class="QLabel" name="label_13">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>10</y>
+                 <width>81</width>
+                 <height>21</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Cancelados</string>
+               </property>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="text_7" native="true">
+              <widget class="QLabel" name="lb_contadorCancelados">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>10</y>
+                 <width>47</width>
+                 <height>13</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
        </layout>
+      </widget>
+      <widget class="QPushButton" name="btn_crearTicket">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>10</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(6, 91, 103);
+color: rgb(237, 237, 237)</string>
+       </property>
+       <property name="text">
+        <string>CREAR TICKET</string>
+       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="widget" native="true">
@@ -774,8 +774,8 @@ image: url(:/resume/estrella.png);</string>
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>801</width>
-         <height>341</height>
+         <width>821</width>
+         <height>391</height>
         </rect>
        </property>
       </widget>
@@ -822,7 +822,7 @@ image: url(:/resume/estrella.png);</string>
         </rect>
        </property>
        <property name="text">
-        <string>Buscar</string>
+        <string>BUSCAR</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="text_buscar_d">
@@ -1034,8 +1034,8 @@ color: rgb(237, 237, 237)</string>
        <rect>
         <x>0</x>
         <y>190</y>
-        <width>821</width>
-        <height>451</height>
+        <width>831</width>
+        <height>481</height>
        </rect>
       </property>
       <widget class="QTableView" name="tb_mis_tickets">
@@ -1044,7 +1044,7 @@ color: rgb(237, 237, 237)</string>
          <x>20</x>
          <y>20</y>
          <width>791</width>
-         <height>411</height>
+         <height>451</height>
         </rect>
        </property>
       </widget>
@@ -1054,7 +1054,7 @@ color: rgb(237, 237, 237)</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>821</width>
+        <width>831</width>
         <height>81</height>
        </rect>
       </property>
@@ -1085,7 +1085,7 @@ color: rgb(237, 237, 237)</string>
 color: rgb(237, 237, 237)</string>
        </property>
        <property name="text">
-        <string>Crear Ticcket</string>
+        <string>CREAR TICKET</string>
        </property>
       </widget>
       <widget class="Line" name="line_4">
@@ -1093,7 +1093,7 @@ color: rgb(237, 237, 237)</string>
         <rect>
          <x>0</x>
          <y>60</y>
-         <width>791</width>
+         <width>831</width>
          <height>16</height>
         </rect>
        </property>
@@ -1107,7 +1107,7 @@ color: rgb(237, 237, 237)</string>
        <rect>
         <x>0</x>
         <y>90</y>
-        <width>821</width>
+        <width>831</width>
         <height>111</height>
        </rect>
       </property>
@@ -1144,7 +1144,7 @@ color: rgb(237, 237, 237)</string>
         </rect>
        </property>
        <property name="text">
-        <string>Buscar</string>
+        <string>BUSCAR</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="text_buscar_t">
@@ -1392,7 +1392,7 @@ color:  rgb(139, 132, 132);</string>
         <rect>
          <x>430</x>
          <y>20</y>
-         <width>111</width>
+         <width>161</width>
          <height>31</height>
         </rect>
        </property>
@@ -1771,14 +1771,14 @@ color:  rgb(139, 132, 132);</string>
       <widget class="QPushButton" name="btn_enviar_add">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>740</x>
          <y>560</y>
-         <width>51</width>
+         <width>61</width>
          <height>21</height>
         </rect>
        </property>
        <property name="text">
-        <string>Enviar</string>
+        <string>ENVIAR</string>
        </property>
       </widget>
       <widget class="QPlainTextEdit" name="pt_comentarios">
@@ -1999,7 +1999,7 @@ color:  rgb(139, 132, 132);</string>
         <x>0</x>
         <y>60</y>
         <width>831</width>
-        <height>571</height>
+        <height>611</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -2133,7 +2133,7 @@ color:  rgb(139, 132, 132);</string>
        <property name="geometry">
         <rect>
          <x>760</x>
-         <y>540</y>
+         <y>560</y>
          <width>51</width>
          <height>21</height>
         </rect>
@@ -2158,7 +2158,7 @@ color:  rgb(139, 132, 132);</string>
          <x>10</x>
          <y>500</y>
          <width>801</width>
-         <height>41</height>
+         <height>61</height>
         </rect>
        </property>
       </widget>
@@ -2355,7 +2355,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
        <property name="text">
-        <string>Guardar</string>
+        <string>GUARDAR</string>
        </property>
       </widget>
       <widget class="QPushButton" name="btn_calendario">
@@ -2539,7 +2539,7 @@ color:  rgb(139, 132, 132);</string>
         </rect>
        </property>
        <property name="text">
-        <string>Ver Detaller</string>
+        <string>VER DETALLES</string>
        </property>
       </widget>
      </widget>

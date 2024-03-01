@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_TicketWindow(object):
     def setupUi(self, TicketWindow):
         TicketWindow.setObjectName("TicketWindow")
-        TicketWindow.resize(993, 717)
+        TicketWindow.resize(994, 717)
         self.centralwidget = QtWidgets.QWidget(TicketWindow)
         self.centralwidget.setStyleSheet("*{\n"
 "color: rgb(0, 0, 0);\n"
@@ -146,18 +146,18 @@ class Ui_TicketWindow(object):
         self.fr_myTickets.setFrameShadow(QtWidgets.QFrame.Raised)
         self.fr_myTickets.setObjectName("fr_myTickets")
         self.heder = QtWidgets.QWidget(self.centralwidget)
-        self.heder.setGeometry(QtCore.QRect(0, 0, 1001, 51))
+        self.heder.setGeometry(QtCore.QRect(0, 0, 1001, 61))
         self.heder.setObjectName("heder")
         self.h1 = QtWidgets.QLabel(self.heder)
         self.h1.setGeometry(QtCore.QRect(9, 9, 81, 24))
         self.h1.setObjectName("h1")
         self.lb_icon_2 = QtWidgets.QLabel(self.heder)
-        self.lb_icon_2.setGeometry(QtCore.QRect(930, 10, 51, 31))
+        self.lb_icon_2.setGeometry(QtCore.QRect(910, 0, 91, 61))
         self.lb_icon_2.setStyleSheet("image: url(:/logo/Logo_Verical_Blanco.png);")
         self.lb_icon_2.setText("")
         self.lb_icon_2.setObjectName("lb_icon_2")
         self.multiWidget = QtWidgets.QStackedWidget(self.centralwidget)
-        self.multiWidget.setGeometry(QtCore.QRect(160, 50, 831, 681))
+        self.multiWidget.setGeometry(QtCore.QRect(160, 60, 831, 671))
         self.multiWidget.setStyleSheet("#title{\n"
 "color: rgb(139, 132, 132);\n"
 "font-family: Inter;\n"
@@ -546,7 +546,7 @@ class Ui_TicketWindow(object):
         self.lb_fechaCreacion.setGeometry(QtCore.QRect(300, 30, 121, 16))
         self.lb_fechaCreacion.setObjectName("lb_fechaCreacion")
         self.lbl_fecha_creacion = QtWidgets.QLabel(self.resume_3)
-        self.lbl_fecha_creacion.setGeometry(QtCore.QRect(430, 20, 111, 31))
+        self.lbl_fecha_creacion.setGeometry(QtCore.QRect(430, 20, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(-1)
@@ -689,7 +689,7 @@ class Ui_TicketWindow(object):
         self.ptext_comentarios_add.setGeometry(QtCore.QRect(10, 520, 791, 41))
         self.ptext_comentarios_add.setObjectName("ptext_comentarios_add")
         self.btn_enviar_add = QtWidgets.QPushButton(self.add)
-        self.btn_enviar_add.setGeometry(QtCore.QRect(750, 560, 51, 21))
+        self.btn_enviar_add.setGeometry(QtCore.QRect(740, 560, 61, 21))
         self.btn_enviar_add.setObjectName("btn_enviar_add")
         self.pt_comentarios = QtWidgets.QPlainTextEdit(self.add)
         self.pt_comentarios.setGeometry(QtCore.QRect(10, 320, 791, 171))
@@ -977,7 +977,7 @@ class Ui_TicketWindow(object):
         TicketWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(TicketWindow)
-        self.multiWidget.setCurrentIndex(0)
+        self.multiWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(TicketWindow)
 
     def retranslateUi(self, TicketWindow):
@@ -993,7 +993,7 @@ class Ui_TicketWindow(object):
         self.rb_responsable.setText(_translate("TicketWindow", "Responsable"))
         self.h1.setText(_translate("TicketWindow", "TICKETS"))
         self.lb_litulo.setText(_translate("TicketWindow", "DASHBOARD"))
-        self.btn_crearTicket.setText(_translate("TicketWindow", "Crear Ticcket"))
+        self.btn_crearTicket.setText(_translate("TicketWindow", "CREAR TICKET"))
         self.label_5.setText(_translate("TicketWindow", "En proceso"))
         self.lb_contadorproceso.setText(_translate("TicketWindow", "0"))
         self.label_17.setText(_translate("TicketWindow", "Terminados"))
@@ -1005,14 +1005,14 @@ class Ui_TicketWindow(object):
         self.label.setText(_translate("TicketWindow", "Asignados"))
         self.lb_contador_asignados.setText(_translate("TicketWindow", "0"))
         self.btn_allTickets_d.setText(_translate("TicketWindow", "TODOS LOS TICKETS"))
-        self.btn_buscar_d.setText(_translate("TicketWindow", "Buscar"))
+        self.btn_buscar_d.setText(_translate("TicketWindow", "BUSCAR"))
         self.lbl_fecha_4.setText(_translate("TicketWindow", "XXXX-XX-XX"))
         self.lb_litulo_2.setText(_translate("TicketWindow", "LINEA DEL TIEMPO TICKET"))
         self.bt_volver.setText(_translate("TicketWindow", "VOLVRER"))
         self.lb_title_4.setText(_translate("TicketWindow", "TICKETS"))
-        self.btn_add_ticket_t.setText(_translate("TicketWindow", "Crear Ticcket"))
+        self.btn_add_ticket_t.setText(_translate("TicketWindow", "CREAR TICKET"))
         self.btn_allTickets_t.setText(_translate("TicketWindow", "TODOS LOS TICKETS"))
-        self.btn_buscar_t.setText(_translate("TicketWindow", "Buscar"))
+        self.btn_buscar_t.setText(_translate("TicketWindow", "BUSCAR"))
         self.lbl_fecha_3.setText(_translate("TicketWindow", "XXXX-XX-XX"))
         self.lbl_agregar_ticket.setText(_translate("TicketWindow", "AGREGAR TICKET"))
         self.lbl_n_ticket.setText(_translate("TicketWindow", "XX0000"))
@@ -1028,7 +1028,7 @@ class Ui_TicketWindow(object):
         self.lbl_nombre_17.setText(_translate("TicketWindow", "COMENTARIO"))
         self.lbl_nombre_4.setText(_translate("TicketWindow", "PRIORIDAD*"))
         self.lb_fechaSolucion.setText(_translate("TicketWindow", "FECHA SOLUCION"))
-        self.btn_enviar_add.setText(_translate("TicketWindow", "Enviar"))
+        self.btn_enviar_add.setText(_translate("TicketWindow", "ENVIAR"))
         self.lbl_nombre_5.setText(_translate("TicketWindow", "AUTOR:"))
         self.lbl_nombres.setText(_translate("TicketWindow", "Nombre Completo"))
         self.lbl_estado_text.setText(_translate("TicketWindow", "ESTADO:"))
@@ -1046,13 +1046,13 @@ class Ui_TicketWindow(object):
         self.lbl_estado_2.setText(_translate("TicketWindow", "ESTADO"))
         self.btn_sigEstado.setText(_translate("TicketWindow", "SIG ESTADO"))
         self.lbl_n_ticket_5.setText(_translate("TicketWindow", "FECHA SOLUCION"))
-        self.btn_guardar_asg_4.setText(_translate("TicketWindow", "Guardar"))
+        self.btn_guardar_asg_4.setText(_translate("TicketWindow", "GUARDAR"))
         self.lbl_fecha.setText(_translate("TicketWindow", "XXXX-XX-XX"))
         self.btn_cancelarTicket.setText(_translate("TicketWindow", "CANCELAR TICKET"))
         self.titulo.setText(_translate("TicketWindow", "REASIGNAR TICKET"))
         self.lbl_n_ticket_3.setText(_translate("TicketWindow", "TICKET:"))
         self.txt_n_ticket.setText(_translate("TicketWindow", "XX0000"))
-        self.btn_verDetalles.setText(_translate("TicketWindow", "Ver Detaller"))
+        self.btn_verDetalles.setText(_translate("TicketWindow", "VER DETALLES"))
 import Resources.iconos.iconos
 
 

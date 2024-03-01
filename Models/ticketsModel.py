@@ -451,6 +451,7 @@ class ModelTickets:
                     x += f"AND LTT.ID_CEMPLEADO = {id_empleado_responsable} "
 
                 if id_departamento != 0 : 
+                    
                     x += f" AND D.ID_RHCDEPARTAMENTO = {id_departamento} "
                 
                 if id_ticket_categoria != 0:

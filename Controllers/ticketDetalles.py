@@ -5,9 +5,12 @@ import Views.calendarioView
 from PyQt5.QtCore import QDate
 import datetime
 from PyQt5 import QtWidgets
+from PyQt5.QtCore import QTimer
 
 class ticketsDetalles():
     def __init__(self, vista):
+        #self.ruta = "U:\\Desarrollo\\Chat-Tickes\\"
+        self.ruta =  "C:\\ARP\\Chat-Tickes\\"
         self.modelo_ticket =  ModelTickets()
         self.vista = vista
         self.modelo_folio_ticket = ModelFolio()
@@ -18,8 +21,9 @@ class ticketsDetalles():
         self.mensaje = QtWidgets.QMessageBox()
         self.mensaje.setIcon(QtWidgets.QMessageBox.Information)
         self.mensaje.setWindowTitle(". . : : Informacion : : . .")
-        self.vista.pt_comentarios.setEnabled(False)
-
+        self.vista.pt_comentarios.setReadOnly(True)
+        self.vista.btn_gurdar_add.clicked.connect(self.recargar_convesacion)
+        self.timer = QTimer()
 
     def ticket_detalles(self, id_ticket):
         Datos.id_ticket = id_ticket
@@ -31,7 +35,8 @@ class ticketsDetalles():
                 self.ticket_asigando_campos()
             else:
                 self.ticket_enProceso_campos()
-            self.folio = self.modelo_folio_ticket.obtener_folio_byid(ticket_detalle[1])
+            folio = self.modelo_folio_ticket.obtener_folio_byid(ticket_detalle[1])
+            Datos.folio_ticket_chat = folio
             self.vista.lbl_nombres.setText(str(ticket_detalle[8]))
             self.vista.cb_departamento_add.setCurrentText(str(ticket_detalle[5]))
             self.vista.cb_prioridad_add.setCurrentText(str(ticket_detalle[9]))
@@ -40,7 +45,7 @@ class ticketsDetalles():
             self.vista.ptext_asunto_add.setPlainText(str(ticket_detalle[3]))
             self.vista.ptext_descripcion_add.setPlainText(str(ticket_detalle[4]))
             self.vista.cb_empleado_add.setCurrentText(str(ticket_detalle[7]))
-            self.vista.lbl_n_ticket.setText(str(self.folio))
+            self.vista.lbl_n_ticket.setText(str(folio))
             self.vista.lbl_fecha_creacion.setText(str(ticket_detalle[2]))
             self.vista.lbl_estado.setText(str(ticket_detalle[11]))
             self.vista.cb_departamento_add.setEnabled(False)
@@ -50,8 +55,9 @@ class ticketsDetalles():
             self.vista.cb_empleado_add.setEnabled(False)
             self.vista.ptext_descripcion_add.setEnabled(False)
             self.vista.btn_gurdar_add.setVisible(False)
+            self.cargar_convesacion()
 
-            self.cargar_convesacion(self.folio)
+            self.recargar_convesacion()      
 
     def condiciones(self):
         estado_actual = self.vista.lbl_estado.text()
@@ -60,6 +66,7 @@ class ticketsDetalles():
             bandera = False
             if self.vista.lbl_estado.text() == 'ASIGNADO':
                 bandera =True
+                
             else:
                 bandera = False
 
@@ -141,10 +148,10 @@ class ticketsDetalles():
 
     def guardar_convesacion(self):
         if self.vista.ptext_comentarios_add.toPlainText() != "":
-            message = self.vista.ptext_comentarios_add.toPlainText()
+            message = self.vista.ptext_comentarios_add.toPlainText().upper()
             self.vista.pt_comentarios.appendPlainText(BdUsurio.nombres+": " + message)
 
-            with open("U:\Desarrollo\Chat-Tickes\\"+self.folio+".txt", "a") as file:
+            with open(self.ruta+Datos.folio_ticket_chat +".txt", "a") as file:
                 file.write(BdUsurio.nombres+": " + message + "\n")
             self.vista.ptext_comentarios_add.clear()
 
@@ -152,11 +159,15 @@ class ticketsDetalles():
             self.mensaje.setText("Escribe un comentario")
             self.mensaje.exec_()
 
-    def cargar_convesacion(self, folio):
+    def cargar_convesacion(self):
         self.vista.pt_comentarios.clear()
         try:
-            with open("U:\Desarrollo\Chat-Tickes\\"+folio+".txt", "r") as file:
+            with open(self.ruta+Datos.folio_ticket_chat +".txt", "r") as file:
                 chat_history = file.read()
                 self.vista.pt_comentarios.setPlainText(chat_history)
         except FileNotFoundError:
             pass
+
+    def recargar_convesacion(self):
+        self.timer.timeout.connect(self.cargar_convesacion)
+        self.timer.start(1000)  # Verificar cada 100 milisegundos 

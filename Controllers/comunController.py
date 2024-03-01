@@ -126,7 +126,6 @@ class ControllerComun:
 
             # Construir el número de folio
             folio_contruido = model_folio.obtener_folio_byid(str(ticket[1]))
-
             # Crear los ítems de la fila
             n_folio = QStandardItem(folio_contruido)
             fecha = QStandardItem(str(ticket[2]))
