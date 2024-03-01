@@ -93,13 +93,15 @@ class CrontrollerTicket:
         self.controllerComon.llenar_cbestado(self.vista.cb_status_d)
         self.controllerComon.llenar_cbestado(self.vista.cb_status_t)
         self.controllerComon.llenar_cbprioridad(self.vista.cb_prioridad_add)
+        self.botones_comentarios_visibles(False)
 
-        # TABLA DASBOART
-        self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
-        self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
+    def botones_comentarios_visibles(self, bool):
+        self.vista.btn_enviar_add.setVisible(bool)
+        self.vista.btn_enviar_add_3.setVisible(bool)
     
     def actualizar_tablas(self):
-        if Datos.cambio_estado:
+        #if Datos.cambio_estado:
+            print("cambio un estado desde resumen o detalles")
             self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
             self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
             self.dashboard_contontar()
@@ -119,12 +121,13 @@ class CrontrollerTicket:
         self.dashboard_contontar()
 
     def evtguardar_ticket(self):
+        print("guardar ticket")
         id_departamento = self.vista.cb_departamento_add.currentData()
         id_categoria = self.vista.cb_categoria_add.currentData()
         prioridad = self.vista.cb_prioridad_add.currentData()
         id_empleado = self.vista.cb_empleado_add.currentData()
-        asunto = self.vista.ptext_asunto_add.toPlainText()
-        descripcion = self.vista.ptext_descripcion_add.toPlainText()
+        asunto = self.vista.ptext_asunto_add.toPlainText().upper()
+        descripcion = self.vista.ptext_descripcion_add.toPlainText().upper()
         fecha = self.fecha()
         status = "ASIGNADO"
         if (id_departamento == 0 or id_categoria == 0 or id_empleado == 0 or prioridad == 0 or asunto == ""
@@ -142,9 +145,10 @@ class CrontrollerTicket:
         self.campos_ticket_despues_creacrear(folio_generado,fecha)
         self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
         self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
-        
+        Datos.folio_ticket_chat=folio_generado
         self.mensaje.setText("Ticket " + str(folio_generado) + " generado correctamente")
         self.mensaje.exec_()
+        self.botones_comentarios_visibles(True)
         return
 
     def campos_ticket_despues_creacrear(self, ticket, fecha):
@@ -166,6 +170,8 @@ class CrontrollerTicket:
         self.vista.multiWidget.setCurrentIndex(index)
 
     def agregar_ticket_nuevo(self):
+        self.botones_comentarios_visibles(False)
+        Datos.folio_ticket_chat = ""
         self.cambiar_pagina(3)
         self.vista.lbl_nombres.setText("")
         self.vista.cb_departamento_add.setCurrentText("")
@@ -178,6 +184,8 @@ class CrontrollerTicket:
         self.vista.lbl_n_ticket.setText("")
         self.vista.lbl_fecha_creacion.setText("")
         self.vista.lbl_estado.setText("")
+        self.vista.pt_comentarios.setPlainText("")
+        self.vista.ptext_comentarios_add.setPlainText("")
         self.vista.cb_departamento_add.setEnabled(True)
         self.vista.cb_prioridad_add.setEnabled(True)
         self.vista.cb_categoria_add.setEnabled(True)

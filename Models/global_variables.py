@@ -20,3 +20,5 @@ class Datos():
    cambio_estado = False
 
    filtro = False
+
+   folio_ticket_chat = ""
