@@ -13,11 +13,11 @@ class ModelCategoria:
     def __init__(self):
         self.c = cn.DataBase()
 
-    def base_categoriasall(self):
+    def base_categorias_by_rhdepartanmento(self, ID_RHCDEPARTAMENTO):
 
         self.c = cn.DataBase()
         try:
-            x = "SELECT ID_BTICKETCATEGORIAS, DESCRIPCION FROM OPS.Base_Tickets_Categorias where activo=1;"
+            x = f"SELECT ID_BTICKETCATEGORIAS, DESCRIPCION FROM OPS.Base_Tickets_Categorias where activo=1  AND ID_RHCDEPARTAMENTO = {ID_RHCDEPARTAMENTO};"
             self.c.cursor.execute(x)
             self.c.connection.commit()
             r = self.c.cursor.fetchall()

@@ -31,26 +31,30 @@ class ControllerComun:
             combo_box.addItem(departamento.departemanto, departamento.id_departamento)
 
     @staticmethod
-    def llenar_cbcategorias(combo_box):
+    def llenar_cbcategorias(combo_box, id_rh_departamento):
         """
             Llenar el combo box: Tipo de documento
         """
+        if id_rh_departamento == 0 :
+            return
         combo_box.clear()
         model = ModelCategoria()
-        categorias_list = model.base_categoriasall()
+        categorias_list = model.base_categorias_by_rhdepartanmento(id_rh_departamento)
         combo_box.addItem("-------", 0)
         for fila in categorias_list:
             categoria = BaseCategorias(fila[0], fila[1])
             combo_box.addItem(categoria.categoria, categoria.idcategoria)
 
     @staticmethod
-    def llenar_cbempleados(combo_box):
+    def llenar_cbempleados(combo_box, id_rh_departamento):
         """
             Llenar el combo box: Tipo de documento
         """
+        if id_rh_departamento == 0 :
+            return
         combo_box.clear()
         model = ModelUser()
-        usuarios_list = model.usuariosASolicitar()
+        usuarios_list = model.usuariosASolicitar(id_rh_departamento)
         combo_box.addItem("-------", 0)
         for usuario in usuarios_list:
             combo_box.addItem(usuario[1], usuario[0])
@@ -68,6 +72,15 @@ class ControllerComun:
         combo_box.addItem("TERMINADO", "TERMINADO")
         combo_box.addItem("CERRADO", "CERRADO")
         combo_box.addItem("CANCELDO", "CANCELADO")
+
+    @staticmethod
+    def cbb_vacio(combo_box):
+        """
+
+            Llenar el combo box: Tipo de documento
+        """
+        combo_box.clear()
+        combo_box.addItem("-------", 0)
 
     @staticmethod
     def llenar_cbprioridad(combo_box):
@@ -117,6 +130,8 @@ class ControllerComun:
                 Datos.filtro = False
             else:
                 tickets_all = model_ticket.select_tickets_dashboard_responsable(BdUsurio.idEmpleado)
+        if  tickets_all is None :
+            return
 
         # Iterar sobre los tickets y agregarlos al modelo de datos
         for  row, ticket in enumerate(tickets_all):
@@ -195,6 +210,8 @@ class ControllerComun:
                 Datos.filtro = False
             else:
                 tickets_all = model_ticket.select_tickets_mis_tickets_responsable(BdUsurio.idEmpleado)
+        if  tickets_all is None :
+            return
 
         # Iterar sobre los tickets y agregarlos al modelo de datos
         for row, ticket in enumerate(tickets_all):

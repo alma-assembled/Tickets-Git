@@ -52,16 +52,15 @@ class ModelUser:
             if hasattr(self, 'c'):
                 self.c.cursor.close()
 
-    def usuariosASolicitar(self):
+    def usuariosASolicitar(self, rh_departamento):
         self.c = cn.DataBase()
         try:  
-          x='''SELECT ID_CEMPLEADO, NOMBRE FROM
+          x=f'''SELECT ID_CEMPLEADO, NOMBRE FROM
                 OPS.Catalogo_Empleados as e, 
                 OPS.RH_Cat_Puestos as p , 
                 RH_Cat_Departamentos d 
                 where e.ACTIVO= 1 and 
-                (d.ID_RHCDEPARTAMENTO = 4  or 
-                d.ID_RHCDEPARTAMENTO = 15  or  e.ID_CEMPLEADO = 29) and 
+                (d.ID_RHCDEPARTAMENTO = {rh_departamento} ) and 
                 d.ID_RHCDEPARTAMENTO = p.ID_RHCDEPARTAMENTO and 
                 e.ID_RHCPUESTO  = p.ID_RHCPUESTO ;'''
           self.c.cursor.execute(x)

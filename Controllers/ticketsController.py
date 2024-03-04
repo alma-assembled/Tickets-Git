@@ -43,6 +43,8 @@ class CrontrollerTicket:
         self.vista.btn_crearTicket.clicked.connect(self.agregar_ticket_nuevo) 
         self.vista.btn_calendario_4.clicked.connect(lambda: self.abrir_calendario_dasboard())
         self.vista.btn_calendario_3.clicked.connect(lambda: self.abrir_calendario_mis_tickets())
+        
+        
         # Tabla dashboart
         self.tb_dashboart_modelo = QStandardItemModel()
         self.vista.tb_tickets_dashboar.setModel(self.tb_dashboart_modelo)
@@ -66,6 +68,16 @@ class CrontrollerTicket:
         self.timer.timeout.connect(self.actualizar_tablas)
         self.timer.start(1000)  # Verificar cada 100 milisegundos
 
+         #agregar un ticket/ resumen
+        self.vista.cb_departamento_add.currentIndexChanged.connect(lambda: self.llenar_cbb_for_departamento(self.vista.cb_departamento_add, self.vista.cb_categoria_add, self.vista.cb_empleado_add))
+        #resumen
+        self.vista.cb_departamento_asg.currentIndexChanged.connect(lambda: self.llenar_cbb_for_departamento(self.vista.cb_departamento_asg, self.vista.cb_empleado_asg, self.vista.cb_empleado_asg))
+        #dashboard
+        self.vista.cb_departamento_d.currentIndexChanged.connect(lambda: self.llenar_cbb_for_departamento(self.vista.cb_departamento_d, self.vista.cb_categoria_d, self.vista.cb_empleado_d))
+        #mis tickets
+        self.vista.cb_departamento_t.currentIndexChanged.connect(lambda: self.llenar_cbb_for_departamento(self.vista.cb_departamento_t, self.vista.cb_categoria_t, self.vista.cb_empleado_t))
+        
+
 
     def llenar_info_inicial(self):
         """
@@ -81,14 +93,16 @@ class CrontrollerTicket:
         self.controllerComon.llenar_cbdepartameto(self.vista.cb_departamento_add)
         self.controllerComon.llenar_cbdepartameto(self.vista.cb_departamento_asg)
 
-        self.controllerComon.llenar_cbcategorias(self.vista.cb_categoria_d)
-        self.controllerComon.llenar_cbcategorias(self.vista.cb_categoria_t)
-        self.controllerComon.llenar_cbcategorias(self.vista.cb_categoria_add)
+        #self.controllerComon.llenar_cbcategorias
+        self.controllerComon.cbb_vacio(self.vista.cb_categoria_d)
+        self.controllerComon.cbb_vacio(self.vista.cb_categoria_t)
+        self.controllerComon.cbb_vacio(self.vista.cb_categoria_add)
 
-        self.controllerComon.llenar_cbempleados(self.vista.cb_empleado_d)
-        self.controllerComon.llenar_cbempleados(self.vista.cb_empleado_t)
-        self.controllerComon.llenar_cbempleados(self.vista.cb_empleado_add)
-        self.controllerComon.llenar_cbempleados(self.vista.cb_empleado_asg)
+        #self.controllerComon.llenar_cbempleados
+        self.controllerComon.cbb_vacio(self.vista.cb_empleado_d)
+        self.controllerComon.cbb_vacio(self.vista.cb_empleado_t)
+        self.controllerComon.cbb_vacio(self.vista.cb_empleado_add)
+        self.controllerComon.cbb_vacio(self.vista.cb_empleado_asg)
 
         self.controllerComon.llenar_cbestado(self.vista.cb_status_d)
         self.controllerComon.llenar_cbestado(self.vista.cb_status_t)
@@ -100,8 +114,8 @@ class CrontrollerTicket:
         self.vista.btn_enviar_add_3.setVisible(bool)
     
     def actualizar_tablas(self):
-        #if Datos.cambio_estado:
-            print("cambio un estado desde resumen o detalles")
+        if Datos.cambio_estado:
+            #print("cambio un estado desde resumen o detalles")
             self.controllerComon.llenar_tb_dasboar(self.tb_dashboart_modelo, self.vista.tb_tickets_dashboar)
             self.controllerComon.llenar_tb_mis_tickets(self.tb_mis_tikets_modelo, self.vista.tb_mis_tickets)
             self.dashboard_contontar()
@@ -295,3 +309,13 @@ class CrontrollerTicket:
 
     def on_date_selected_mis_tickets(self, date):
         self.vista.lbl_fecha_3.setText(str(date))
+
+    def llenar_cbb_for_departamento(self,combo_box_departamento, combo_box_categorias, combo_box_empleados,):
+        id_departamento = combo_box_departamento.currentData()
+        if id_departamento != 0 : 
+            self.controllerComon.llenar_cbcategorias(combo_box_categorias, id_departamento)
+            self.controllerComon.llenar_cbempleados(combo_box_empleados, id_departamento)
+        else:
+            self.controllerComon.cbb_vacio(combo_box_empleados)
+            self.controllerComon.cbb_vacio(combo_box_categorias)
+            
