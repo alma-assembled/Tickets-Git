@@ -110,9 +110,9 @@ class ticketsResumen():
             self.modelo_ticket.guardar_lineatiempo('PROCESO', fecha_hoy, Datos.id_ticket, BdUsurio.idEmpleado)
             self.ticket_resumen(Datos.id_ticket)
             self.ticket_enProceso_campos()
-            Datos.cambio_estado = True
             self.mensaje.setText("FECHA SOLUCION ASIGNADA")
             self.mensaje.exec_()
+            Datos.cambio_estado = True
         else:
             self.mensaje.setText("DEBES ELEGIR  FECHA PARA SOLUCION")
             self.mensaje.exec_()
@@ -155,29 +155,39 @@ class ticketsResumen():
             self.mensaje.setText("INGRESA FECHA DE SOLUCION: ")
             self.mensaje.exec_()
             return
-        
-        self.modelo_ticket.guardar_lineatiempo(estado_sigiente,self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
+        fecha_hoy = self.fecha()
+
+        if estado_sigiente == 'TERMINADO':
+            self.modelo_ticket.asignarFechaTermino(fecha_hoy, Datos.id_ticket )
+        elif estado_sigiente == 'CERRADO':
+            self.modelo_ticket.asignarFechaCierre(fecha_hoy, Datos.id_ticket )
+
+        if estado_sigiente == 'CERRADO':
+            id_empleado_resp = self.modelo_ticket.ticket_id_empleado_responsable(Datos.id_ticket)[0]
+            self.modelo_ticket.guardar_lineatiempo(estado_sigiente,self.fecha(),Datos.id_ticket, id_empleado_resp)
+        else :   
+            self.modelo_ticket.guardar_lineatiempo(estado_sigiente,self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
         self.ticket_resumen(Datos.id_ticket)
-        Datos.cambio_estado = True
         self.mensaje.setText("TICKET EN ESTADO: " + str(estado_sigiente))
         self.mensaje.exec_()
-    
+        Datos.cambio_estado = True
+        
     def cerrar_ticket(self):     
         self.modelo_ticket.guardar_lineatiempo('CANCELADO',self.fecha(),Datos.id_ticket,BdUsurio.idEmpleado)
         self.ticket_resumen(Datos.id_ticket)
-        Datos.cambio_estado = True
         self.vista.btn_cancelarTicket.setVisible(False)
         self.mensaje.setText("TICKET EN ESTADO: CANCELADO")
         self.mensaje.exec_()
+        Datos.cambio_estado = True
     
     def reasignar_ticket(self):
         if self.vista.lbl_estado_2.text() == 'ASIGNADO':
             id_asignar = self.vista.cb_empleado_asg.currentData()
             self.modelo_ticket.guardar_lineatiempo('ASIGNADO',self.fecha(),Datos.id_ticket,id_asignar)
             self.ticket_resumen(Datos.id_ticket)
-            Datos.cambio_estado = True
             self.mensaje.setText("TICKET REACIGNADO A : " + str(self.vista.cb_empleado_asg.currentText()))
             self.mensaje.exec_()
+            Datos.cambio_estado = True
     
     def cambiar_pagina(self, index):
         # Cambiar a la página indicada

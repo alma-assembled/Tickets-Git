@@ -355,6 +355,45 @@ class ModelTickets:
                 if hasattr(self, 'c'):
                     self.c.cursor.close()
 
+    def asignarFechaTermino(self, fecha, id_ticket):
+            self.c = cn.DataBase()
+            x=f'''UPDATE `OPS`.`Base_Ticket` SET `FECHA_TERMINO` = '{fecha}' WHERE (`ID_BTICKET` = '{id_ticket}');'''
+            try:
+                self.c.cursor.execute(x)
+                self.c.connection.commit()
+            except pymysql.Error as e: 
+                print("Error: ", e)
+            finally:
+                if hasattr(self, 'c'):
+                    self.c.cursor.close()
+
+    def ticket_id_empleado_responsable(self, id_ticket):
+        self.c = cn.DataBase()
+        try:
+            x=f'''SELECT  L.ID_CEMPLEADO FROM OPS.Base_Ticket_Linea_Tiempo L WHERE L.ID_BTICKET = {id_ticket} ORDER BY  L.FECHA  LIMIT 1;'''
+            self.c.cursor.execute(x)
+            self.c.connection.commit()
+            r = self.c.cursor.fetchone()
+            return r
+        except pymysql.Error as e:
+            print("Error:", e)
+        finally:
+            if hasattr(self, 'c'):
+                self.c.cursor.close()
+
+    def asignarFechaCierre(self, fecha, id_ticket):
+            self.c = cn.DataBase()
+            x=f'''UPDATE `OPS`.`Base_Ticket` SET `FECHA_CIERRE` = '{fecha}' WHERE (`ID_BTICKET` = '{id_ticket}');'''
+            try:
+                self.c.cursor.execute(x)
+                self.c.connection.commit()
+            except pymysql.Error as e: 
+                print("Error: ", e)
+            finally:
+                if hasattr(self, 'c'):
+                    self.c.cursor.close()
+
+
     def count_estado_solicitante(self, id_empleado_solicitante, estado):
         self.c = cn.DataBase()
         try:
